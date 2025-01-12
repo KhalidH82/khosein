@@ -9,3 +9,12 @@
     </div>
   </div>
 </template>
+
+<script setup>
+useHead({
+  title: 'Khalid Hosein',
+  meta: {
+    description: 'Khalid Hosein Full Stack Web Developer Portfolio'
+  }
+})
+</script>
