@@ -15,13 +15,20 @@
       <!-- Contact Form -->
       <div class="max-w-2xl mx-auto">
         <form 
-          name="contact" 
-          method="POST" 
-          netlify
+          name="contact"
+          data-netlify="true"
+          method="POST"
+          netlify-honeypot="bot-field"
           class="card bg-base-200 shadow-xl"
         >
+          <!-- Hidden fields for Netlify -->
           <input type="hidden" name="form-name" value="contact" />
-          
+          <p class="hidden">
+            <label>
+              Don't fill this out if you're human: <input name="bot-field" />
+            </label>
+          </p>
+
           <div class="card-body space-y-6">
             <!-- Name Input -->
             <div class="form-control relative">
