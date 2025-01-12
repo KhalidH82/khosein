@@ -17,7 +17,7 @@
         <form 
           name="contact" 
           method="POST" 
-          data-netlify="true"
+          netlify
           class="card bg-base-200 shadow-xl"
         >
           <input type="hidden" name="form-name" value="contact" />
