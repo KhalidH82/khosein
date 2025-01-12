@@ -62,8 +62,8 @@
 <script setup>
 const navItems = [
   { text: 'Home', section: '/' },
-  { text: 'About', section: '/#about' },
-  { text: 'Projects', section: '/#projects' },
+  // { text: 'About', section: '/#about' },
+  // { text: 'Projects', section: '/#projects' },
   { text: 'Contact', section: '/#contact' },
   { text: 'Resume', section: '/digital-resume' }
 ]
@@ -71,7 +71,8 @@ const navItems = [
 const router = useRouter()
 const route = useRoute()
 const scrolled = ref(false)
-const isDark = ref(false)
+const colorMode = useColorMode()
+const isDark = ref(colorMode.value === 'dark')
 
 // Active section tracking
 const currentSection = ref('home')
@@ -123,6 +124,14 @@ const handleNavigation = (section) => {
   }
 }
 
+// Theme toggle function
+const toggleTheme = () => {
+  isDark.value = !isDark.value
+  colorMode.preference = isDark.value ? 'dark' : 'light'
+  document.documentElement.setAttribute('data-theme', isDark.value ? 'dark' : 'light')
+  localStorage.setItem('theme', isDark.value ? 'dark' : 'light')
+}
+
 onMounted(() => {
   // Scroll handler
   window.addEventListener('scroll', () => {
@@ -133,16 +142,22 @@ onMounted(() => {
   // Initial active section check
   updateActiveSection()
 
-  // Theme handling
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    document.documentElement.setAttribute('data-theme', 'dark')
-    isDark.value = true
-  }
+  // Theme handling - update this section
+  const savedTheme = localStorage.getItem('theme')
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+  
+  // Initialize theme based on saved preference or system preference
+  isDark.value = savedTheme ? savedTheme === 'dark' : systemPrefersDark
+  colorMode.preference = isDark.value ? 'dark' : 'light'
+  document.documentElement.setAttribute('data-theme', isDark.value ? 'dark' : 'light')
 
+  // Listen for system theme changes
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    const newTheme = e.matches ? 'dark' : 'light'
-    document.documentElement.setAttribute('data-theme', newTheme)
-    isDark.value = e.matches
+    if (!localStorage.getItem('theme')) { // Only update if user hasn't set a preference
+      isDark.value = e.matches
+      colorMode.preference = isDark.value ? 'dark' : 'light'
+      document.documentElement.setAttribute('data-theme', isDark.value ? 'dark' : 'light')
+    }
   })
 })
 

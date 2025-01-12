@@ -20,19 +20,27 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   modules: ['@nuxtjs/color-mode', '@nuxtjs/tailwindcss', '@nuxt/icon'],
+  colorMode: {
+    classSuffix: '',
+    preference: 'system',
+    fallback: 'light',
+    dataValue: 'theme',
+    storageKey: 'theme'
+  },
   tailwindcss: {
     config: {
+      darkMode: 'class',
       daisyui: {
         themes: [
           {
             light: {
               ...require('daisyui/src/theming/themes')['light'],
-              primary: '#3b82f6',  // or your preferred color
+              primary: '#3b82f6',
               'base-100': '#ffffff',
             },
             dark: {
               ...require('daisyui/src/theming/themes')['dark'],
-              primary: '#3b82f6',  // or your preferred color
+              primary: '#3b82f6',
               'base-100': '#1f2937',
             }
           }

@@ -13,24 +13,24 @@
             Crafting digital experiences with clean code and creative solutions.
           </p>
           <div class="flex gap-4">
-            <a href="https://github.com/yourusername" target="_blank" class="btn btn-circle btn-ghost group">
+            <a href="https://github.com/KhalidH82" target="_blank" class="btn btn-circle btn-ghost group">
               <Icon 
                 name="mdi:github" 
                 class="w-6 h-6 transition-transform group-hover:scale-110" 
               />
             </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" class="btn btn-circle btn-ghost group">
+            <a href="https://www.linkedin.com/in/khalid-hosein/" target="_blank" class="btn btn-circle btn-ghost group">
               <Icon 
                 name="mdi:linkedin" 
                 class="w-6 h-6 transition-transform group-hover:scale-110" 
               />
             </a>
-            <a href="https://twitter.com/yourusername" target="_blank" class="btn btn-circle btn-ghost group">
+            <!-- <a href="https://twitter.com/yourusername" target="_blank" class="btn btn-circle btn-ghost group">
               <Icon 
                 name="mdi:twitter" 
                 class="w-6 h-6 transition-transform group-hover:scale-110" 
               />
-            </a>
+            </a> -->
           </div>
         </div>
 

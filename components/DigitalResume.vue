@@ -210,7 +210,7 @@
 const contactInfo = [
   { label: 'khalid.hosein9@gmail.com', href: 'mailto:khalid.hosein9@gmail.com', icon: 'mdi:email' },
   { label: '+1 786 838 9311', href: 'tel:+17868389311', icon: 'mdi:phone' },
-  { label: 'Philadelphia, PA 19122', href: '#', icon: 'mdi:map-marker' },
+  { label: 'Philadelphia, PA 19122', href: '', icon: 'mdi:map-marker' },
   { label: 'www.khalidhosein.com', href: 'https://www.khalidhosein.com', icon: 'mdi:web' }
 ]
 
