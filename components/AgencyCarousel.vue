@@ -2,11 +2,11 @@
   <section id="projects" class="py-24 overflow-hidden">
     <!-- Section Header -->
     <div class="container mx-auto px-4 mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold mb-4">
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">
         Agency Work
         <span class="text-primary">.</span>
       </h2>
-      <p class="text-base-content/60 max-w-2xl">
+      <p class="font-sans text-base-content/60 max-w-2xl">
         Selected projects I've worked on with leading agencies.
       </p>
     </div>
@@ -16,23 +16,29 @@
       <!-- First Agency -->
       <div>
         <div class="container mx-auto px-4 mb-8">
-          <h3 class="text-3xl font-bold flex items-center gap-3">
+          <h3 class="font-display text-3xl font-bold flex items-center gap-3">
             <!-- <img src="/agency1-logo.jpg" alt="Agency 1" class="w-8 h-8 rounded-full" /> -->
             Agency One
           </h3>
         </div>
-        <CarouselSection :projects="agency1Projects" />
+        <CarouselSection 
+          :projects="agency1Projects" 
+          carousel-id="agency1-carousel"
+        />
       </div>
 
       <!-- Second Agency -->
       <div>
         <div class="container mx-auto px-4 mb-8">
-          <h3 class="text-3xl font-bold flex items-center gap-3">
+          <h3 class="font-display text-3xl font-bold flex items-center gap-3">
             <!-- <img src="/agency2-logo.jpg" alt="Agency 2" class="w-8 h-8 rounded-full" /> -->
             Agency Two
           </h3>
         </div>
-        <CarouselSection :projects="agency2Projects" />
+        <CarouselSection 
+          :projects="agency2Projects" 
+          carousel-id="agency2-carousel"
+        />
       </div>
     </div>
   </section>

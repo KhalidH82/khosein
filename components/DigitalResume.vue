@@ -1,9 +1,9 @@
 <template>
-  <section class="py-24 bg-base-100">
+  <section class="py-24 bg-gradient-to-b from-white to-indigo-50 dark:from-indigo-900 dark:to-indigo-950">
     <div class="container mx-auto px-4">
       <!-- Header Section -->
       <div class="text-start mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-indigo-950 dark:text-indigo-100">
           Digital Profile
           <span class="text-primary">.</span>
         </h2>
@@ -14,10 +14,10 @@
         <!-- Left Column - Contact & Skills -->
         <div class="space-y-8">
           <!-- Contact Info Card -->
-          <div class="card bg-base-200 shadow-xl">
+          <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20">
             <div class="card-body">
-              <h3 class="text-2xl font-bold mb-4">Contact Info</h3>
-              <div class="space-y-3">
+              <h3 class="font-display text-2xl font-bold mb-4">Contact Info</h3>
+              <div class="font-sans space-y-3">
                 <a 
                   v-for="contact in contactInfo" 
                   :key="contact.label"
@@ -32,14 +32,14 @@
           </div>
 
           <!-- Skills Card -->
-          <div class="card bg-base-200 shadow-xl">
+          <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20">
             <div class="card-body">
-              <h3 class="text-2xl font-bold mb-4">Technical Skills</h3>
+              <h3 class="font-display text-2xl font-bold mb-4">Technical Skills</h3>
               <div class="flex flex-wrap gap-2">
                 <span 
                   v-for="skill in skills" 
                   :key="skill"
-                  class="badge badge-primary badge-lg"
+                  class="font-sans badge bg-indigo-100 dark:bg-indigo-800 text-indigo-600 dark:text-indigo-300"
                 >
                   {{ skill }}
                 </span>
@@ -48,10 +48,10 @@
           </div>
 
           <!-- Additional Info Card -->
-          <div class="card bg-base-200 shadow-xl">
+          <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20">
             <div class="card-body">
-              <h3 class="text-2xl font-bold mb-4">Additional Info</h3>
-              <div class="space-y-2 text-base-content/80">
+              <h3 class="font-display text-2xl font-bold mb-4">Additional Info</h3>
+              <div class="font-sans space-y-2 text-base-content/80">
                 <p>Willing to relocate: Anywhere</p>
                 <p>Authorized to work in the US for any employer</p>
               </div>
@@ -59,9 +59,9 @@
           </div>
 
           <!-- Links Card -->
-          <div class="card bg-base-200 shadow-xl">
+          <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20">
             <div class="card-body">
-              <h3 class="text-2xl font-bold mb-4">Professional Links</h3>
+              <h3 class="font-display text-2xl font-bold mb-4">Professional Links</h3>
               <div class="flex flex-col gap-3">
                 <a 
                   v-for="link in professionalLinks" 
@@ -81,23 +81,23 @@
         <!-- Center Column - Experience -->
         <div class="lg:col-span-2 space-y-8">
           <!-- Summary Card -->
-          <div class="card bg-base-200 shadow-xl">
+          <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20">
             <div class="card-body">
-              <h3 class="text-2xl font-bold mb-4">Professional Summary</h3>
-              <p class="text-base-content/80 leading-relaxed">
+              <h3 class="font-display text-2xl font-bold mb-4">Professional Summary</h3>
+              <p class="font-sans text-base-content/80 leading-relaxed">
                 {{ professionalSummary }}
               </p>
             </div>
           </div>
 
           <!-- Skills & Competencies -->
-          <div class="card bg-base-200 shadow-xl">
+          <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20">
             <div class="card-body">
-              <h3 class="text-2xl font-bold mb-6">Skills & Competencies</h3>
+              <h3 class="font-display text-2xl font-bold mb-6">Skills & Competencies</h3>
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Development -->
                 <div class="space-y-3">
-                  <h4 class="text-lg font-semibold text-primary">Development</h4>
+                  <h4 class="font-display text-lg font-semibold text-primary">Development</h4>
                   <ul class="space-y-2">
                     <li class="flex items-center gap-2">
                       <Icon name="mdi:check-circle" class="w-5 h-5 text-primary" />
@@ -116,7 +116,7 @@
 
                 <!-- Management -->
                 <div class="space-y-3">
-                  <h4 class="text-lg font-semibold text-primary">Management</h4>
+                  <h4 class="font-display text-lg font-semibold text-primary">Management</h4>
                   <ul class="space-y-2">
                     <li class="flex items-center gap-2">
                       <Icon name="mdi:check-circle" class="w-5 h-5 text-primary" />
@@ -135,7 +135,7 @@
 
                 <!-- Technical -->
                 <div class="space-y-3">
-                  <h4 class="text-lg font-semibold text-primary">Technical</h4>
+                  <h4 class="font-display text-lg font-semibold text-primary">Technical</h4>
                   <ul class="space-y-2">
                     <li class="flex items-center gap-2">
                       <Icon name="mdi:check-circle" class="w-5 h-5 text-primary" />
@@ -143,11 +143,11 @@
                     </li>
                     <li class="flex items-center gap-2">
                       <Icon name="mdi:check-circle" class="w-5 h-5 text-primary" />
-                      <span>SEO & Google Analytics</span>
+                      <span>SEO</span>
                     </li>
                     <li class="flex items-center gap-2">
                       <Icon name="mdi:check-circle" class="w-5 h-5 text-primary" />
-                      <span>Content Creation</span>
+                      <span>Content Management</span>
                     </li>
                   </ul>
                 </div>
@@ -156,9 +156,9 @@
           </div>
 
           <!-- Experience Timeline -->
-          <div class="card bg-base-200 shadow-xl">
+          <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20">
             <div class="card-body">
-              <h3 class="text-2xl font-bold mb-6">Work Experience</h3>
+              <h3 class="font-display text-2xl font-bold mb-6">Work Experience</h3>
               <div class="space-y-8">
                 <div 
                   v-for="job in experience" 
@@ -170,10 +170,10 @@
                   
                   <div class="space-y-2">
                     <div class="flex justify-between items-start flex-wrap gap-2">
-                      <h4 class="text-xl font-bold">{{ job.title }}</h4>
-                      <span class="text-sm text-primary">{{ job.period }}</span>
+                      <h4 class="font-display text-xl font-bold">{{ job.title }}</h4>
+                      <span class="font-sans text-sm text-primary">{{ job.period }}</span>
                     </div>
-                    <h5 class="text-lg text-base-content/70">{{ job.company }} - {{ job.location }}</h5>
+                    <h5 class="font-sans text-lg text-base-content/70">{{ job.company }} - {{ job.location }}</h5>
                     <ul class="list-disc list-inside space-y-2 text-base-content/80">
                       <li 
                         v-for="(responsibility, index) in job.responsibilities" 
@@ -190,13 +190,13 @@
           </div>
 
           <!-- Education -->
-          <div class="card bg-base-200 shadow-xl">
+          <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20">
             <div class="card-body">
-              <h3 class="text-2xl font-bold mb-4">Education</h3>
+              <h3 class="font-display text-2xl font-bold mb-4">Education</h3>
               <div class="space-y-2">
-                <h4 class="text-xl font-bold">Certificate in Full Stack Web Development</h4>
-                <p class="text-lg text-base-content/70">General Assembly - New York, NY</p>
-                <p class="text-sm text-primary">January 2018 to April 2018</p>
+                <h4 class="font-display text-xl font-bold">Certificate in Full Stack Web Development</h4>
+                <p class="font-sans text-lg text-base-content/70">General Assembly - New York, NY</p>
+                <p class="font-sans text-sm text-primary">January 2018 to April 2018</p>
               </div>
             </div>
           </div>

@@ -1,8 +1,8 @@
 <template>
   <div class="fixed w-full top-0 z-50">
     <div 
-      class="navbar backdrop-blur-md bg-base-100/70 transition-all duration-300"
-      :class="{ 'py-4': !scrolled, 'py-2 shadow-lg': scrolled }"
+      class="navbar backdrop-blur-md bg-white/70 dark:bg-indigo-950/70 transition-all duration-300"
+      :class="{ 'py-4': !scrolled, 'py-2 shadow-lg shadow-indigo-100/20 dark:shadow-indigo-900/20': scrolled }"
     >
       <div class="container mx-auto px-4">
         <div class="navbar-start">
@@ -22,12 +22,12 @@
             v-for="(item, index) in navItems" 
             :key="item.text"
             @click.prevent="handleNavigation(item.section)"
-            class="nav-link cursor-pointer text-xl relative overflow-hidden group"
-            :class="{ 'active': currentSection === item.section.replace('/#', '') }"
+            class="font-display text-xl relative overflow-hidden group text-indigo-600 dark:text-indigo-300"
+            :class="{ 'text-indigo-700 dark:text-indigo-200': currentSection === item.section.replace('/#', '') }"
             :style="`animation-delay: ${index * 100}ms`"
           >
             {{ item.text }}
-            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 dark:bg-indigo-400 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
           </a>
         </div>
         
@@ -222,8 +222,8 @@ onUnmounted(() => {
   bottom: 0;
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.03),
-    rgba(255, 255, 255, 0.01)
+    rgba(79, 70, 229, 0.03),
+    rgba(79, 70, 229, 0.01)
   );
   pointer-events: none;
 }
