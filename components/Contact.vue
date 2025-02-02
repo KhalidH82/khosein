@@ -17,6 +17,7 @@
         <form 
           name="contact"
           method="POST"
+          action="/contact.html"
           data-netlify="true"
           netlify-honeypot="bot-field"
           class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20"
