@@ -22,7 +22,7 @@
             v-for="(item, index) in navItems" 
             :key="item.text"
             @click.prevent="handleNavigation(item.section)"
-            class="font-display text-xl relative overflow-hidden group text-indigo-600 dark:text-indigo-300"
+            class="font-display text-xl relative overflow-hidden group text-indigo-600 dark:text-indigo-300 hover:cursor-pointer"
             :class="{ 'text-indigo-700 dark:text-indigo-200': currentSection === item.section.replace('/#', '') }"
             :style="`animation-delay: ${index * 100}ms`"
           >

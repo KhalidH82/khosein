@@ -34,15 +34,19 @@
           <!-- Skills Card -->
           <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20">
             <div class="card-body">
-              <h3 class="font-display text-2xl font-bold mb-4">Technical Skills</h3>
-              <div class="flex flex-wrap gap-2">
-                <span 
+              <h3 class="font-display text-2xl font-bold mb-6">Technical Skills</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                <div 
                   v-for="skill in skills" 
                   :key="skill"
-                  class="font-sans badge bg-indigo-100 dark:bg-indigo-800 text-indigo-600 dark:text-indigo-300"
+                  class="group relative overflow-hidden rounded-lg bg-white/50 dark:bg-indigo-800/50 p-3 hover:bg-indigo-600 dark:hover:bg-indigo-700 transition-all duration-300"
                 >
-                  {{ skill }}
-                </span>
+                  <div class="relative z-10 flex items-center gap-2 transition-colors group-hover:text-white">
+                    <Icon :name="getSkillIcon(skill)" class="w-5 h-5" />
+                    <span class="font-sans text-sm font-medium">{{ skill }}</span>
+                  </div>
+                  <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -286,39 +290,80 @@ const experience = [
       'Acted as a liaison between front and back end development teams to assist with understanding and documenting client requirements, estimating work, and developing or enhancing new or existing solutions',
       'Led efforts in transitioning to new technologies built upon the current tech stack by researching, learning, and educating the development team'
     ]
-  },
-  {
-    title: 'Web Developer',
-    company: 'The Mercer Club',
-    location: 'New York, NY',
-    period: 'September 2019 to January 2020',
-    responsibilities: [
-      'Utilize the latest front end web technologies to lead the continuous improvement of existing eCommerce WordPress site to achieve functional, visual, and design integrity of the website',
-      'Collaborate with the UX/UI team to define test approaches and execute usability test cases to ensure compliance with quality requirements',
-      'Assist the team in creating user stories, wireframes, develop specifications, and manage the overall vision of the eCommerce WordPress site',
-      'Create reusable code and libraries for future web development use',
-      'Coded responsive Email templates for Mailchimp email marketing to engage new and existing users of the platform',
-      'Support the Senior Developer on the development of plans and workflow to convert the existing WordPress site to a React full-stack application to scale business'
-    ]
-  },
-  {
-    title: 'WordPress/Shopify Developer',
-    company: 'myEPKmedia',
-    location: 'New York, NY',
-    period: 'December 2018 to September 2019',
-    responsibilities: [
-      'Assumed full ownership for architecting and building flawless and efficient e-commerce solutions for clients using WordPress and Shopify',
-      'Created quality mock-ups and prototypes for client reviews and feedback',
-      'Conceptualized and translated design ideas to user-friendly web pages for eCommerce sites including but not limited to landing pages and product pages',
-      'Maintained a strong eye for details and appealing designs by working closely with UX and Design teams on new user-facing features and website usability',
-      'Implemented SEO practices to drive and maximize website traffic, conversion, retention, revenue, and profitability',
-      'Utilized relevant plugins for scheduling and launching social media, email, and banners campaigns on WordPress',
-      'Demonstrated working knowledge of Google Analytics, Mozbar, Keyword Planner; research keywords, create searchable indices, evaluate search results, and utilize actionable insights to increase web site traffic from search engines',
-      'Maintained knowledge of the two forms of Divi Builder such as the "Back-end Builder" and the front-end "Visual Builder" as well as utilizing the theme to design responsive WordPress sites',
-      'Managed digital assets, categories, products, RSS feeds, and content for the sites'
-    ]
   }
+  // {
+  //   title: 'Web Developer',
+  //   company: 'The Mercer Club',
+  //   location: 'New York, NY',
+  //   period: 'September 2019 to January 2020',
+  //   responsibilities: [
+  //     'Utilize the latest front end web technologies to lead the continuous improvement of existing eCommerce WordPress site to achieve functional, visual, and design integrity of the website',
+  //     'Collaborate with the UX/UI team to define test approaches and execute usability test cases to ensure compliance with quality requirements',
+  //     'Assist the team in creating user stories, wireframes, develop specifications, and manage the overall vision of the eCommerce WordPress site',
+  //     'Create reusable code and libraries for future web development use',
+  //     'Coded responsive Email templates for Mailchimp email marketing to engage new and existing users of the platform',
+  //     'Support the Senior Developer on the development of plans and workflow to convert the existing WordPress site to a React full-stack application to scale business'
+  //   ]
+  // },
+  // {
+  //   title: 'WordPress/Shopify Developer',
+  //   company: 'myEPKmedia',
+  //   location: 'New York, NY',
+  //   period: 'December 2018 to September 2019',
+  //   responsibilities: [
+  //     'Assumed full ownership for architecting and building flawless and efficient e-commerce solutions for clients using WordPress and Shopify',
+  //     'Created quality mock-ups and prototypes for client reviews and feedback',
+  //     'Conceptualized and translated design ideas to user-friendly web pages for eCommerce sites including but not limited to landing pages and product pages',
+  //     'Maintained a strong eye for details and appealing designs by working closely with UX and Design teams on new user-facing features and website usability',
+  //     'Implemented SEO practices to drive and maximize website traffic, conversion, retention, revenue, and profitability',
+  //     'Utilized relevant plugins for scheduling and launching social media, email, and banners campaigns on WordPress',
+  //     'Demonstrated working knowledge of Google Analytics, Mozbar, Keyword Planner; research keywords, create searchable indices, evaluate search results, and utilize actionable insights to increase web site traffic from search engines',
+  //     'Maintained knowledge of the two forms of Divi Builder such as the "Back-end Builder" and the front-end "Visual Builder" as well as utilizing the theme to design responsive WordPress sites',
+  //     'Managed digital assets, categories, products, RSS feeds, and content for the sites'
+  //   ]
+  // }
 ]
+
+const getSkillIcon = (skill) => {
+  const iconMap = {
+    'Vue.js': 'logos:vue',
+    'React.js': 'logos:react',
+    'Node.js': 'logos:nodejs',
+    'Express.js': 'simple-icons:express',
+    'TypeScript': 'logos:typescript-icon',
+    'PostgreSQL': 'logos:postgresql',
+    'REST API': 'mdi:api',
+    'Git': 'logos:git-icon',
+    'Docker': 'logos:docker-icon',
+    'Nuxt.js': 'logos:nuxt-icon',
+    'WordPress': 'logos:wordpress-icon',
+    'Shopify': 'logos:shopify',
+    'SCSS': 'vscode-icons:file-type-scss',
+    'jQuery': 'logos:jquery',
+    'MVC': 'mdi:view-grid',
+    'JSON': 'mdi:code-json',
+    'TailwindCSS': 'logos:tailwindcss-icon',
+    'Directus': 'simple-icons:directus',
+    'Contentful': 'logos:contentful',
+    'Webflow': 'logos:webflow',
+    'Nuxt Content': 'logos:nuxt-icon',
+    'Next.js': 'logos:nextjs-icon',
+    'GitHub': 'logos:github-icon',
+    'Slack': 'logos:slack-icon',
+    'Jira': 'logos:jira',
+    'Notion': 'logos:notion-icon',
+    'Cursor': 'simple-icons:cursor',
+    'VS Code': 'logos:visual-studio-code',
+    'JavaScript': 'logos:javascript',
+    'Netlify': 'logos:netlify',
+    'Firebase': 'logos:firebase',
+    'Supabase': 'logos:supabase-icon',
+    'CI/CD': 'mdi:cog-sync',
+    'Figma': 'logos:figma'
+  }
+
+  return iconMap[skill] || 'mdi:code-tags'
+}
 </script>
 
 <style scoped>

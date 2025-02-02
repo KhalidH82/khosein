@@ -87,6 +87,9 @@
                       class="group relative overflow-hidden rounded-lg bg-white/50 dark:bg-indigo-800/50 p-3 hover:bg-indigo-600 dark:hover:bg-indigo-700 transition-all duration-300"
                     >
                       <div class="relative z-10 flex items-center gap-2 transition-colors group-hover:text-white">
+                        <div v-if="skill === 'Cursor'">
+                          <img src="/icons/cursor.png" class="w-5 h-5" />
+                        </div>
                         <Icon :name="getSkillIcon(skill)" class="w-5 h-5" />
                         <span class="font-sans text-sm font-medium">{{ skill }}</span>
                       </div>
@@ -198,7 +201,7 @@ const getSkillIcon = (skill) => {
     'Angular': 'logos:angular-icon',
     'WordPress': 'logos:wordpress-icon',
     'Shopify': 'logos:shopify',
-    'SASS': 'logos:sass',
+    'SCSS': 'vscode-icons:file-type-scss',
     'Redux': 'logos:redux',
     'Unit Testing': 'mdi:test-tube',
     'Agile': 'mdi:sync',
@@ -219,10 +222,13 @@ const getSkillIcon = (skill) => {
     'Slack': 'logos:slack-icon',
     'Jira': 'logos:jira',
     'Notion': 'logos:notion-icon',
-    'Cursor': 'mdi:cursor-default',
+    'Cursor': '/icons/cursor.png',
     'VS Code': 'logos:visual-studio-code',
     'JavaScript': 'logos:javascript',
     'Netlify': 'logos:netlify',
+    'Supabase': 'logos:supabase-icon',
+    'Firebase': 'logos:firebase',
+    'Figma': 'logos:figma',
   }
 
   return iconMap[skill] || 'mdi:code-tags'
