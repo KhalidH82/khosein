@@ -34,7 +34,7 @@
                 />
                 <!-- Overlay with Quick Facts -->
                 <div class="absolute inset-0 bg-gradient-to-t from-indigo-950/90 via-indigo-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <!-- <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                     <div class="grid grid-cols-3 gap-4">
                       <div class="text-center">
                         <div class="font-display text-2xl font-bold text-white">5+</div>
@@ -49,7 +49,7 @@
                         <div class="font-sans text-sm text-indigo-200">Clients</div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
               <!-- Decorative Frames -->
