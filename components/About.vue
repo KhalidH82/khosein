@@ -222,7 +222,7 @@ const getSkillIcon = (skill) => {
     'Slack': 'logos:slack-icon',
     'Jira': 'logos:jira',
     'Notion': 'logos:notion-icon',
-    'Cursor': '/icons/cursor.png',
+    // 'Cursor': '/icons/cursor.png',
     'VS Code': 'logos:visual-studio-code',
     'JavaScript': 'logos:javascript',
     'Netlify': 'logos:netlify',

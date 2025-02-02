@@ -13,9 +13,9 @@
       </p>
       <div class="flex gap-4 animate-fade-in animation-delay-1200">
         <button class="btn btn-primary text-[#fff] hover:bg-indigo-700 dark:hover:bg-indigo-500">View Projects</button>
-        <button class="btn btn-outline border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white dark:border-indigo-400 dark:text-indigo-400 dark:hover:bg-indigo-400 dark:hover:text-indigo-950">
+        <a href="#contact" class="btn btn-outline border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white dark:border-indigo-400 dark:text-indigo-400 dark:hover:bg-indigo-400 dark:hover:text-indigo-950">
           Contact Me
-        </button>
+        </a>
       </div>
     </div>
     <div class="order-1 md:order-2 animate-float">

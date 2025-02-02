@@ -15,9 +15,9 @@
       <!-- Contact Form -->
       <div class="max-w-2xl mx-auto">
         <form 
+          @submit.prevent="handleSubmit"
           name="contact"
           method="POST"
-          action="/contact.html"
           data-netlify="true"
           netlify-honeypot="bot-field"
           class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20"
@@ -160,9 +160,76 @@
           </div>
         </div>
       </div>
+
+      <!-- Success Modal -->
+      <dialog 
+        :class="{ 'modal modal-open': showModal, 'modal': !showModal }"
+        @click="showModal = false"
+      >
+        <div 
+          class="modal-box relative bg-white dark:bg-indigo-900/90 backdrop-blur-lg"
+          @click.stop
+        >
+          <div class="text-center space-y-6">
+            <!-- Success Animation -->
+            <div class="w-24 h-24 mx-auto relative">
+              <div class="absolute inset-0 rounded-full border-4 border-primary animate-success-circle"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <Icon 
+                  name="ph:check-bold" 
+                  class="w-12 h-12 text-primary animate-success-check" 
+                />
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <h3 class="font-display text-2xl font-bold text-indigo-950 dark:text-indigo-100">
+                Message Sent Successfully!
+              </h3>
+              <p class="font-sans text-base-content/60">
+                Thank you for reaching out. I'll get back to you as soon as possible.
+              </p>
+            </div>
+
+            <!-- Close Button -->
+            <button 
+              @click="showModal = false"
+              class="btn btn-primary btn-block text-[#fff]"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+
+        <!-- Close button for accessibility -->
+        <form method="dialog" class="modal-backdrop">
+          <button>close</button>
+        </form>
+      </dialog>
     </div>
   </section>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+
+const showModal = ref(false)
+
+const handleSubmit = async (e) => {
+  try {
+    const formData = new FormData(e.target)
+    await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+    showModal.value = true
+    e.target.reset()
+  } catch (error) {
+    console.error('Form submission error:', error)
+  }
+}
+</script>
 
 <style scoped>
 
@@ -189,5 +256,62 @@
   100% { 
     @apply shadow-[0_0_0_4px] shadow-primary/0;
   }
+}
+
+@keyframes successCircle {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes successCheck {
+  0% {
+    transform: scale(0) rotate(45deg);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.3) rotate(5deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+.animate-success-circle {
+  animation: successCircle 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.animate-success-check {
+  animation: successCheck 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+/* Ensure modal animations work smoothly */
+.modal {
+  @apply transition-opacity duration-300;
+}
+
+.modal-box {
+  @apply transform transition-all duration-300;
+}
+
+.modal:not(.modal-open) .modal-box {
+  @apply scale-90 opacity-0;
+}
+
+.modal.modal-open .modal-box {
+  @apply scale-100 opacity-100;
 }
 </style>
