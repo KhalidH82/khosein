@@ -1,6 +1,6 @@
 <template>
-  <div class="min-h-screen flex flex-col md:flex-row justify-center items-center gap-12 px-4">
-    <div class="order-2 md:order-1 md:w-1/2 flex flex-col items-center md:items-start space-y-8">
+  <div class="h-[50vh] lg:min-h-screen flex flex-col lg:flex-row justify-center items-center gap-12 px-4">
+    <div class="order-2 md:order-1 md:w-full lg:w-1/2 flex flex-col items-center md:items-start space-y-8">
       <h1 class="font-display text-6xl md:text-8xl font-bold text-indigo-950 dark:text-indigo-100">
         <span class="animate-slide-in inline-block">Khalid</span>
         <span class="animate-slide-in inline-block animation-delay-300">Hosein</span>
@@ -12,13 +12,19 @@
         Crafting elegant solutions to complex problems with modern web technologies.
       </p>
       <div class="flex gap-4 animate-fade-in animation-delay-1200">
-        <button class="btn btn-primary text-[#fff] hover:bg-indigo-700 dark:hover:bg-indigo-500">View Projects</button>
-        <a href="#contact" class="btn btn-outline border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white dark:border-indigo-400 dark:text-indigo-400 dark:hover:bg-indigo-400 dark:hover:text-indigo-950">
+        <button class="btn btn-primary text-[#fff] hover:bg-indigo-700 dark:hover:bg-indigo-500">
+          View Projects
+        </button>
+        <NuxtLink 
+          to="/#contact" 
+          @click.prevent="scrollToContact"
+          class="btn btn-outline border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white dark:border-indigo-400 dark:text-indigo-400 dark:hover:bg-indigo-400 dark:hover:text-indigo-950"
+        >
           Contact Me
-        </a>
+        </NuxtLink>
       </div>
     </div>
-    <div class="order-1 md:order-2 animate-float">
+    <div class="order-1 md:order-2 animate-float hidden lg:block">
       <div class="relative w-72 md:w-[32rem] aspect-square rounded-full overflow-hidden shadow-2xl shadow-indigo-200 dark:shadow-indigo-900/50">
         <img 
           src="/khavatar.jpg" 
@@ -30,6 +36,15 @@
     </div>
   </div>
 </template>
+
+<script setup>
+const scrollToContact = () => {
+  const element = document.getElementById('contact')
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+</script>
 
 <style scoped>
 @keyframes slideIn {

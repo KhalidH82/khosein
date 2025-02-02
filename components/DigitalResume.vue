@@ -35,7 +35,7 @@
           <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20">
             <div class="card-body">
               <h3 class="font-display text-2xl font-bold mb-6">Technical Skills</h3>
-              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+              <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-3 gap-3">
                 <div 
                   v-for="skill in skills" 
                   :key="skill"
@@ -214,7 +214,7 @@
 const contactInfo = [
   { label: 'khalid.hosein9@gmail.com', href: 'mailto:khalid.hosein9@gmail.com', icon: 'mdi:email' },
   { label: '+1 786 838 9311', href: 'tel:+17868389311', icon: 'mdi:phone' },
-  { label: 'Philadelphia, PA 19122', href: '', icon: 'mdi:map-marker' },
+  { label: 'Global', href: '', icon: 'mdi:map-marker' },
   { label: 'www.khalidhosein.com', href: 'https://www.khalidhosein.com', icon: 'mdi:web' }
 ]
 
@@ -222,16 +222,6 @@ const professionalLinks = [
   { label: 'Portfolio', url: 'https://www.khalidhosein.com', icon: 'mdi:web' },
   { label: 'GitHub', url: 'https://github.com/KhalidH82', icon: 'mdi:github' },
   { label: 'LinkedIn', url: 'https://www.linkedin.com/in/khalid-hosein/', icon: 'mdi:linkedin' }
-]
-
-const skills = [
-  'Vue.js', 'React.js', 'Node.js', 'Express.js', 'TypeScript',
-  'PostgreSQL', 'REST API', 'Git', 'Docker', 'Nuxt.js',
-  'Angular', 'WordPress', 'Shopify', 'SASS', 'Redux',
-  'Unit Testing', 'Agile', 'CI/CD', 'Ruby/Rails', 'jQuery',
-  'MVC', 'JSON', 'User Interface (UI)', 'Front-End Development',
-  'A/B Testing', 'APIs', 'Software Development', 'SQL',
-  'Communication Skills', 'Customer Service'
 ]
 
 const professionalSummary = `Creative and highly analytical Full Stack Web Developer with a strong background in both front-end and back-end web development technologies. I specialize in crafting Server Side Rendered, CMS-architected, and content-driven marketing websites resulting in fast high-performance, SEO-optimized, and accessible modern websites that not only meet but exceed industry and client standards. With a passion for driving initial project conception and meticulous planning, I specialize in optimizing website architecture, conducting comprehensive testing, and addressing technical challenges head-on to deliver exceptional web solutions. I'm dedicated to delivering web applications that align seamlessly with user and business requirements while upholding brand identity and guidelines to the highest quality.`
@@ -324,6 +314,64 @@ const experience = [
   // }
 ]
 
+const skillCategories = {
+  'Frontend Development': [
+    'Vue.js',
+    'React.js',
+    'TailwindCSS',
+    'SCSS',
+    'jQuery',
+  ],
+  'Backend Development': [
+    'Node.js',
+    'Express.js',
+    'REST API'
+  ],
+  'Databases': [
+    'Supabase',
+    'Firebase',
+    'PostgreSQL',
+  ],
+  'Languages & Tools': [
+    'JavaScript',
+    'TypeScript',
+    'JSON',
+    'MVC',
+  ],
+  'DevOps & Tools': [
+    'GitHub',
+    'Git',
+    'Docker',
+    'Netlify',
+    'CI/CD',
+  ],
+  'CMS & E-commerce': [
+    'Directus',
+    'Contentful',
+    'WordPress',
+    'Shopify',
+    'Webflow',
+    'Nuxt Content'
+  ],
+  'Frameworks': [
+    'Nuxt.js',
+    'Next.js',
+  ],
+  'Productivity Skills': [
+    'Figma',
+    'Slack',
+    'Jira',
+    'Notion',
+    'Cursor',
+    'VS Code'
+  ],
+}
+
+// Replace the existing skills array with a computed property that flattens the categories
+const skills = computed(() => 
+  Object.values(skillCategories).flat()
+)
+
 const getSkillIcon = (skill) => {
   const iconMap = {
     'Vue.js': 'logos:vue',
@@ -336,13 +384,21 @@ const getSkillIcon = (skill) => {
     'Git': 'logos:git-icon',
     'Docker': 'logos:docker-icon',
     'Nuxt.js': 'logos:nuxt-icon',
+    'Angular': 'logos:angular-icon',
     'WordPress': 'logos:wordpress-icon',
     'Shopify': 'logos:shopify',
     'SCSS': 'vscode-icons:file-type-scss',
+    'Redux': 'logos:redux',
+    'Unit Testing': 'mdi:test-tube',
+    'Agile': 'mdi:sync',
+    'CI/CD': 'mdi:cog-sync',
+    'Ruby/Rails': 'logos:rails',
     'jQuery': 'logos:jquery',
     'MVC': 'mdi:view-grid',
     'JSON': 'mdi:code-json',
+    'GraphQL': 'logos:graphql',
     'TailwindCSS': 'logos:tailwindcss-icon',
+    'MongoDB': 'logos:mongodb-icon',
     'Directus': 'simple-icons:directus',
     'Contentful': 'logos:contentful',
     'Webflow': 'logos:webflow',
@@ -352,14 +408,13 @@ const getSkillIcon = (skill) => {
     'Slack': 'logos:slack-icon',
     'Jira': 'logos:jira',
     'Notion': 'logos:notion-icon',
-    'Cursor': 'simple-icons:cursor',
+    // 'Cursor': '/icons/cursor.png',
     'VS Code': 'logos:visual-studio-code',
     'JavaScript': 'logos:javascript',
     'Netlify': 'logos:netlify',
-    'Firebase': 'logos:firebase',
     'Supabase': 'logos:supabase-icon',
-    'CI/CD': 'mdi:cog-sync',
-    'Figma': 'logos:figma'
+    'Firebase': 'logos:firebase',
+    'Figma': 'logos:figma',
   }
 
   return iconMap[skill] || 'mdi:code-tags'

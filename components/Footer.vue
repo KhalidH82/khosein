@@ -70,7 +70,7 @@
             </a>
             <p class="flex items-center gap-3 text-base-content/80">
               <Icon name="mdi:map-marker" class="w-5 h-5" />
-              USA
+              Global
             </p>
           </div>
         </div>

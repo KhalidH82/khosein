@@ -64,11 +64,30 @@
                 <span class="inline-block animate-wave">👋</span>
               </h3>
               <p class="font-sans leading-relaxed">
-                With over 5 years of experience in web development, I specialize in building scalable, user-friendly applications. My journey in tech started with [your story here], and I've been passionate about creating innovative solutions ever since.
+                With over 5 years of experience in web development, I specialize in building scalable, user-friendly applications. 
               </p>
+              <!-- My journey in tech started with [your story here], and I've been passionate about creating innovative solutions ever since. -->
               <p class="font-sans leading-relaxed">
-                When I'm not coding, you'll find me [your interests/hobbies]. I believe in continuous learning and staying up-to-date with the latest technologies.
+                When I'm not coding, you'll find me <span class="inline-block animate-bounce">🏋🏽</span> <span class="inline-block animate-spin">🚴🏽‍♂️</span> <span class="inline-block animate-pulse">🛫</span> <span class="inline-block animate-float">🏝️</span> <span class="inline-block animate-bounce">⛰️</span>. I believe in continuous learning and staying up-to-date with the latest technologies.
               </p>
+              <!-- CTA Section -->
+      <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+        <a 
+          href="#contact" 
+          class="btn btn-primary text-[#fff] hover:bg-indigo-700 dark:hover:bg-indigo-500 group"
+        >
+          Get in Touch
+          <Icon name="mdi:arrow-right" class="w-5 h-5 transition-transform group-hover:translate-x-1" />
+        </a>
+        <a 
+          href="/resume.pdf" 
+          target="_blank"
+          class="btn btn-outline border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white dark:border-indigo-400 dark:text-indigo-400 dark:hover:bg-indigo-400 dark:hover:text-indigo-950 group"
+        >
+          Download CV
+          <Icon name="mdi:download" class="w-5 h-5 transition-transform group-hover:translate-y-1" />
+        </a>
+      </div>
             </div>
           </div>
 
@@ -98,25 +117,6 @@
                   </div>
                 </div>
               </template>
-            </div>
-
-            <!-- CTA Section -->
-            <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-              <a 
-                href="#contact" 
-                class="btn btn-primary text-[#fff] hover:bg-indigo-700 dark:hover:bg-indigo-500 group"
-              >
-                Get in Touch
-                <Icon name="mdi:arrow-right" class="w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </a>
-              <a 
-                href="/resume.pdf" 
-                target="_blank"
-                class="btn btn-outline border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white dark:border-indigo-400 dark:text-indigo-400 dark:hover:bg-indigo-400 dark:hover:text-indigo-950 group"
-              >
-                Download CV
-                <Icon name="mdi:download" class="w-5 h-5 transition-transform group-hover:translate-y-1" />
-              </a>
             </div>
           </div>
         </div>
