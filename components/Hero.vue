@@ -1,5 +1,5 @@
 <template>
-  <div class="h-[50vh] lg:min-h-screen flex flex-col lg:flex-row justify-center items-center gap-12 px-4">
+  <div class="min-h-screen flex flex-col lg:flex-row justify-center items-center gap-12 px-4">
     <div class="order-2 md:order-1 md:w-full lg:w-1/2 flex flex-col items-center md:items-start space-y-8">
       <h1 class="font-display text-6xl md:text-8xl font-bold text-indigo-950 dark:text-indigo-100">
         <span class="animate-slide-in inline-block">Khalid</span>
@@ -12,9 +12,9 @@
         Crafting elegant solutions to complex problems with modern web technologies.
       </p>
       <div class="flex gap-4 animate-fade-in animation-delay-1200">
-        <button class="btn btn-primary text-[#fff] hover:bg-indigo-700 dark:hover:bg-indigo-500">
+        <!-- <button class="btn btn-primary text-[#fff] hover:bg-indigo-700 dark:hover:bg-indigo-500">
           View Projects
-        </button>
+        </button> -->
         <NuxtLink 
           to="/#contact" 
           @click.prevent="scrollToContact"

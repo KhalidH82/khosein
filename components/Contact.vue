@@ -2,7 +2,7 @@
   <section id="contact" class="py-24">
     <div class="container mx-auto px-4">
       <!-- Section Header -->
-      <div class="text-center mb-16">
+      <div class="text-center mb-16 animate-fade-in">
         <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">
           Get In Touch
           <span class="text-primary">.</span>
@@ -20,7 +20,7 @@
           method="POST"
           data-netlify="true"
           netlify-honeypot="bot-field"
-          class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20"
+          class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20 animate-slide-up"
         >
           <!-- Add this hidden input for Netlify form handling -->
           <input type="hidden" name="form-name" value="contact" />
@@ -33,76 +33,34 @@
           </div>
 
           <div class="card-body space-y-6">
-            <!-- Name Input -->
-            <div class="form-control relative">
-              <input 
-                type="text" 
-                name="name"
-                id="name"
-                required
-                class="input bg-indigo-50 dark:bg-indigo-900/50 border-indigo-200 dark:border-indigo-700 focus:border-indigo-600 dark:focus:border-indigo-400 w-full pt-6 peer focus:border-primary"
-                placeholder=" "
-              />
-              <label 
-                for="name"
-                class="font-sans absolute text-base-content/60 duration-300 transform -translate-y-3 scale-75 top-6 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary"
-              >
-                Your Name
-              </label>
-            </div>
-
-            <!-- Email Input -->
-            <div class="form-control relative">
-              <input 
-                type="email" 
-                name="email"
-                id="email"
-                required
-                class="input bg-indigo-50 dark:bg-indigo-900/50 border-indigo-200 dark:border-indigo-700 focus:border-indigo-600 dark:focus:border-indigo-400 w-full pt-6 peer focus:border-primary"
-                placeholder=" "
-              />
-              <label 
-                for="email"
-                class="font-sans absolute text-base-content/60 duration-300 transform -translate-y-3 scale-75 top-6 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary"
-              >
-                Email Address
-              </label>
-            </div>
-
-            <!-- Subject Input -->
-            <div class="form-control relative">
-              <input 
-                type="text" 
-                name="subject"
-                id="subject"
-                required
-                class="input bg-indigo-50 dark:bg-indigo-900/50 border-indigo-200 dark:border-indigo-700 focus:border-indigo-600 dark:focus:border-indigo-400 w-full pt-6 peer focus:border-primary"
-                placeholder=" "
-              />
-              <label 
-                for="subject"
-                class="font-sans absolute text-base-content/60 duration-300 transform -translate-y-3 scale-75 top-6 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary"
-              >
-                Subject
-              </label>
-            </div>
-
-            <!-- Message Input -->
-            <div class="form-control relative">
-              <textarea 
-                name="message"
-                id="message"
-                required
-                rows="4"
-                class="textarea bg-indigo-50 dark:bg-indigo-900/50 border-indigo-200 dark:border-indigo-700 focus:border-indigo-600 dark:focus:border-indigo-400 w-full pt-6 peer focus:border-primary resize-none"
-                placeholder=" "
-              ></textarea>
-              <label 
-                for="message"
-                class="font-sans absolute text-base-content/60 duration-300 transform -translate-y-3 scale-75 top-6 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary"
-              >
-                Your Message
-              </label>
+            <!-- Form Fields -->
+            <div v-for="field in formFields" :key="field.id">
+              <div class="form-control relative">
+                <input 
+                  v-if="field.type !== 'textarea'"
+                  :type="field.type" 
+                  :name="field.name"
+                  :id="field.id"
+                  required
+                  class="input bg-indigo-50 dark:bg-indigo-900/50 border-indigo-200 dark:border-indigo-700 focus:border-indigo-600 dark:focus:border-indigo-400 w-full pt-6 peer focus:border-primary"
+                  placeholder=" "
+                />
+                <textarea 
+                  v-else
+                  :name="field.name"
+                  :id="field.id"
+                  required
+                  rows="4"
+                  class="textarea bg-indigo-50 dark:bg-indigo-900/50 border-indigo-200 dark:border-indigo-700 focus:border-indigo-600 dark:focus:border-indigo-400 w-full pt-6 peer focus:border-primary resize-none"
+                  placeholder=" "
+                ></textarea>
+                <label 
+                  :for="field.id"
+                  class="font-sans absolute text-base-content/60 duration-300 transform -translate-y-3 scale-75 top-6 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary"
+                >
+                  {{ field.label }}
+                </label>
+              </div>
             </div>
 
             <!-- Submit Button -->
@@ -168,8 +126,8 @@
 
       <!-- Success Modal -->
       <dialog 
-        :class="{ 'modal modal-open': showModal, 'modal': !showModal }"
-        @click="showModal = false"
+        :open="showModal"
+        class="modal"
       >
         <div 
           class="modal-box relative bg-white dark:bg-indigo-900/90 backdrop-blur-lg"
@@ -220,6 +178,13 @@ import { ref } from 'vue'
 
 const showModal = ref(false)
 
+const formFields = [
+  { id: 'name', name: 'name', type: 'text', label: 'Your Name' },
+  { id: 'email', name: 'email', type: 'email', label: 'Email Address' },
+  { id: 'subject', name: 'subject', type: 'text', label: 'Subject' },
+  { id: 'message', name: 'message', type: 'textarea', label: 'Your Message' }
+]
+
 const handleSubmit = async (e) => {
   try {
     const formData = new FormData(e.target)
@@ -237,7 +202,32 @@ const handleSubmit = async (e) => {
 </script>
 
 <style scoped>
+/* Animations */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
 
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form animations */
 @keyframes submit {
   0% { transform: translateY(0); }
   50% { transform: translateY(-2px); }
@@ -248,21 +238,7 @@ const handleSubmit = async (e) => {
   animation: submit 0.3s ease;
 }
 
-/* Optional: Add focus ring animation */
-.input:focus, .textarea:focus {
-  @apply ring-2 ring-primary/20;
-  animation: focusRing 0.3s ease-out;
-}
-
-@keyframes focusRing {
-  0% { 
-    @apply shadow-[0_0_0_0] shadow-primary/40;
-  }
-  100% { 
-    @apply shadow-[0_0_0_4px] shadow-primary/0;
-  }
-}
-
+/* Success animations */
 @keyframes successCircle {
   0% {
     transform: scale(0.8);
@@ -303,7 +279,7 @@ const handleSubmit = async (e) => {
   opacity: 0;
 }
 
-/* Ensure modal animations work smoothly */
+/* Modal animations */
 .modal {
   @apply transition-opacity duration-300;
 }
