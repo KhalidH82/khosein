@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gradient-to-b from-indigo-50 to-white dark:from-indigo-950 dark:to-indigo-900">
+  <div>
     <!-- <ConstructionAlert /> -->
     <div class="container mx-auto px-4">
       <Hero />
