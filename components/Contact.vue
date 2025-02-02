@@ -16,9 +16,10 @@
       <div class="max-w-2xl mx-auto">
         <form 
           name="contact"
-          data-netlify="true"
+          action="/"
           method="POST"
           netlify-honeypot="bot-field"
+          data-netlify="true"
           class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20"
         >
           <!-- Hidden fields for Netlify -->
