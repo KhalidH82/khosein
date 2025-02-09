@@ -1,13 +1,13 @@
 <template>
-  <footer class="bg-gradient-to-b from-indigo-50 to-white dark:from-indigo-900 dark:to-indigo-950 pt-24 pb-12">
+  <footer class="bg-gradient-to-b from-indigo-50 to-white pt-24 pb-12">
     <div class="container mx-auto px-4">
       <!-- Main Footer Content -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
         <!-- Brand Section -->
         <div class="space-y-6">
           <div class="flex items-center gap-4">
-            <img src="/khlogo.jpg" alt="KH Logo" class="w-12 h-12 rounded-full ring-2 ring-indigo-200 dark:ring-indigo-700" />
-            <h3 class="font-display text-2xl font-bold text-indigo-950 dark:text-indigo-100">Khalid Hosein</h3>
+            <img src="/khlogo.jpg" alt="KH Logo" class="w-12 h-12 rounded-full ring-2 ring-indigo-200" />
+            <h3 class="font-display text-2xl font-bold text-indigo-950">Khalid Hosein</h3>
           </div>
           <p class="font-sans text-base-content/80">
             Crafting digital experiences with clean code and creative solutions.
@@ -77,7 +77,7 @@
       </div>
 
       <!-- Bottom Bar -->
-      <div class="border-t border-indigo-200 dark:border-indigo-700 pt-8">
+      <div class="border-t border-indigo-200 pt-8">
         <div class="flex flex-col md:flex-row justify-between items-center gap-4">
           <p class="font-sans text-base-content/60 text-sm">
             © {{ new Date().getFullYear() }} Khalid Hosein. All rights reserved.

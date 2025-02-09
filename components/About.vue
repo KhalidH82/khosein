@@ -3,9 +3,9 @@
     <div class="container mx-auto px-4">
       <!-- Section Header -->
       <div class="text-center mb-24">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-indigo-950 dark:text-indigo-100">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-indigo-950">
           About Me
-          <span class="text-indigo-600 dark:text-indigo-400">.</span>
+          <span class="text-indigo-600">.</span>
         </h2>
         <p class="font-sans text-base-content/60 max-w-2xl mx-auto">
           Passionate about creating meaningful web experiences and solving complex problems through clean, efficient code.
@@ -16,7 +16,7 @@
       <div class="relative">
         <!-- Decorative Background Elements -->
         <div class="absolute inset-0 -z-10 overflow-hidden">
-          <div class="absolute top-1/4 -left-1/4 w-96 h-96 bg-indigo-200/30 dark:bg-indigo-700/20 rounded-full blur-3xl"></div>
+          <div class="absolute top-1/4 -left-1/4 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl"></div>
           <div class="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl"></div>
         </div>
 
@@ -53,13 +53,13 @@
                 </div>
               </div>
               <!-- Decorative Frames -->
-              <div class="absolute -top-4 -left-4 w-full h-full border-2 border-indigo-500 dark:border-indigo-400 rounded-2xl transition-transform duration-300 group-hover:-translate-x-2 group-hover:-translate-y-2"></div>
-              <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-indigo-500 dark:border-indigo-400 rounded-2xl transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2"></div>
+              <div class="absolute -top-4 -left-4 w-full h-full border-2 border-indigo-500 rounded-2xl transition-transform duration-300 group-hover:-translate-x-2 group-hover:-translate-y-2"></div>
+              <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-indigo-500 rounded-2xl transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2"></div>
             </div>
 
             <!-- Introduction -->
             <div class="space-y-4 p-6 bg-white/50  rounded-2xl backdrop-blur-sm">
-              <h3 class="font-display text-2xl font-bold text-indigo-950 dark:text-indigo-100 flex items-center gap-3">
+              <h3 class="font-display text-2xl font-bold text-indigo-950 flex items-center gap-3">
                 Hi, I'm Khalid
                 <span class="inline-block animate-wave">👋</span>
               </h3>
@@ -74,7 +74,7 @@
       <div class="flex flex-wrap gap-4 justify-center md:justify-start">
         <a 
           href="#contact" 
-          class="btn btn-primary text-[#fff] hover:bg-indigo-700 dark:hover:bg-indigo-500 group"
+          class="btn btn-primary text-[#fff] hover:bg-indigo-700 group"
         >
           Get in Touch
           <Icon name="mdi:arrow-right" class="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -82,7 +82,7 @@
         <a 
           href="/resume.pdf" 
           target="_blank"
-          class="btn btn-outline border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white dark:border-indigo-400 dark:text-indigo-400 dark:hover:bg-indigo-400 dark:hover:text-indigo-950 group"
+          class="btn btn-outline border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white group"
         >
           Download CV
           <Icon name="mdi:download" class="w-5 h-5 transition-transform group-hover:translate-y-1" />
@@ -96,14 +96,14 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div v-for="(skills, category) in skillCategories" :key="category">
                 <div class="p-6 bg-white/50  rounded-2xl backdrop-blur-sm space-y-4 hover:shadow-xl transition-all duration-300">
-                  <h4 class="font-display text-xl font-bold text-indigo-600 dark:text-indigo-400">
+                  <h4 class="font-display text-xl font-bold text-indigo-600">
                     {{ category }}
                   </h4>
                   <div class="grid grid-cols-2 gap-3">
                     <div 
                       v-for="skill in skills" 
                       :key="skill"
-                      class="group relative overflow-hidden rounded-lg bg-white/50 dark:bg-indigo-800/50 p-3 hover:bg-indigo-600 dark:hover:bg-indigo-700 transition-all duration-300"
+                      class="group relative overflow-hidden rounded-lg bg-white/50 p-3 hover:bg-indigo-600 transition-all duration-300"
                     >
                       <div class="relative z-10 flex items-center gap-2 transition-colors group-hover:text-white">
                         <div v-if="skill === 'Cursor'">

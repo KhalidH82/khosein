@@ -37,7 +37,7 @@
                 :name="field.name"
                 :id="field.id"
                   required
-                  class="input bg-indigo-50  border-indigo-200 dark:border-indigo-700 w-full peer focus:border-primary"
+                  class="input bg-indigo-50  border-indigo-200 w-full peer focus:border-primary"
                   placeholder=" " container-class="w-full"></IInput>
               </div>
             </div>
@@ -99,7 +99,7 @@
 
       <!-- Success Modal -->
       <dialog :open="showModal" class="modal">
-        <div class="modal-box relative bg-white dark:bg-indigo-900/90 backdrop-blur-lg" @click.stop>
+        <div class="modal-box relative bg-white backdrop-blur-lg" @click.stop>
           <div class="text-center space-y-6">
             <!-- Success Animation -->
             <div class="w-24 h-24 mx-auto relative">
@@ -110,7 +110,7 @@
             </div>
 
             <div class="space-y-3">
-              <h3 class="font-display text-2xl font-bold text-indigo-950 dark:text-indigo-100">
+              <h3 class="font-display text-2xl font-bold text-indigo-950">
                 Message Sent Successfully!
               </h3>
               <p class="font-sans text-base-content/60">
