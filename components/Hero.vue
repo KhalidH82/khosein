@@ -4,10 +4,12 @@
       <div class="min-h-50 lg:min-h-screen flex flex-col-reverse lg:flex-row items-center gap-12">
         <!-- Left Content -->
         <div class="w-full lg:w-7/12">
-          <TextHoverEffect
-            class="w-full lg:w-[90%] h-52 lg:h-full"
-            text="Khalid Hosein"
-          />
+          <ClientOnly>
+            <TextHoverEffect
+              class="w-full lg:w-[90%] h-52 lg:h-full"
+              text="Khalid Hosein"
+            />
+          </ClientOnly>
           <div class="space-y-6">
             <h2 class="font-display text-3xl md:text-4xl text-indigo-600 animate-fade-up">
               Full Stack Web Developer
