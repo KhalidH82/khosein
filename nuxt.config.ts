@@ -23,6 +23,7 @@ export default defineNuxtConfig({
     storageKey: 'theme'
   },
   tailwindcss: {
+    cssPath: '@/assets/css/tailwind.css',
     config: {
       darkMode: 'class',
       daisyui: {

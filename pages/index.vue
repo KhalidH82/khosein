@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="bg-white">
     <!-- <ConstructionAlert /> -->
-    <div class="container mx-auto px-4">
+    <div class="bg-gray-100">
       <Hero />
       <About />
-      <!-- <AgencyCarousel /> -->
+      <AgencyCarousel />
       <Contact />
     </div>
   </div>

@@ -13,18 +13,12 @@
       </div>
 
       <!-- Contact Form -->
-      <div class="max-w-2xl mx-auto">
-        <form 
-          @submit.prevent="handleSubmit"
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20 animate-slide-up"
-        >
+      <div class="max-w-lg mx-auto">
+        <form @submit.prevent="handleSubmit" name="contact" method="POST" data-netlify="true"
+          netlify-honeypot="bot-field" class="card bg-white shadow-xl shadow-indigo-100 animate-slide-up">
           <!-- Add this hidden input for Netlify form handling -->
           <input type="hidden" name="form-name" value="contact" />
-          
+
           <!-- Add this for spam prevention -->
           <div class="hidden">
             <label>
@@ -36,49 +30,28 @@
             <!-- Form Fields -->
             <div v-for="field in formFields" :key="field.id">
               <div class="form-control relative">
-                <input 
-                  v-if="field.type !== 'textarea'"
-                  :type="field.type" 
-                  :name="field.name"
-                  :id="field.id"
+                <UiLabel for="field.id" class="ml-4 w-full font-sans text-base-content/60 duration-300 transform -translate-y-3 scale-75 top-6 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary">{{ field.label }}</UiLabel>
+                <IInput  
+                v-if="field.type == 'textarea' || 'textarea'"
+                :type="field.type" 
+                :name="field.name"
+                :id="field.id"
                   required
-                  class="input bg-indigo-50 dark:bg-indigo-900/50 border-indigo-200 dark:border-indigo-700 focus:border-indigo-600 dark:focus:border-indigo-400 w-full pt-6 peer focus:border-primary"
-                  placeholder=" "
-                />
-                <textarea 
-                  v-else
-                  :name="field.name"
-                  :id="field.id"
-                  required
-                  rows="4"
-                  class="textarea bg-indigo-50 dark:bg-indigo-900/50 border-indigo-200 dark:border-indigo-700 focus:border-indigo-600 dark:focus:border-indigo-400 w-full pt-6 peer focus:border-primary resize-none"
-                  placeholder=" "
-                ></textarea>
-                <label 
-                  :for="field.id"
-                  class="font-sans absolute text-base-content/60 duration-300 transform -translate-y-3 scale-75 top-6 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary"
-                >
-                  {{ field.label }}
-                </label>
+                  class="input bg-indigo-50  border-indigo-200 dark:border-indigo-700 w-full peer focus:border-primary"
+                  placeholder=" " container-class="w-full"></IInput>
               </div>
             </div>
 
             <!-- Submit Button -->
             <div class="form-control mt-6">
-              <button 
-                type="submit"
-                class="btn btn-primary w-full group relative overflow-hidden"
-              >
-                <span class="relative z-10 text-[#fff]">Send Message</span>
-                <div class="absolute inset-0 bg-white/20 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
-              </button>
+              <InteractiveHoverButton type="submit" text="Send Message" class="w-full" />
             </div>
           </div>
         </form>
 
         <!-- Contact Info Cards -->
         <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-          <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20 hover:scale-105 transition-transform">
+          <div class="card bg-white  shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20 hover:scale-105 transition-transform">
             <div class="card-body items-center text-center">
               <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                 <Icon name="mdi:email" class="w-6 h-6 text-primary" />
@@ -94,7 +67,7 @@
           </div>
 
 
-          <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20 hover:scale-105 transition-transform">
+          <div class="card bg-white  shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20 hover:scale-105 transition-transform">
             <div class="card-body items-center text-center">
               <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                 <Icon name="mdi:phone" class="w-6 h-6 text-primary" />
@@ -110,7 +83,7 @@
           </div>
 
 
-          <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20 hover:scale-105 transition-transform">
+          <div class="card bg-white  shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20 hover:scale-105 transition-transform">
             <div class="card-body items-center text-center">
               <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                 <Icon name="mdi:map-marker" class="w-6 h-6 text-primary" />
@@ -125,23 +98,14 @@
       </div>
 
       <!-- Success Modal -->
-      <dialog 
-        :open="showModal"
-        class="modal"
-      >
-        <div 
-          class="modal-box relative bg-white dark:bg-indigo-900/90 backdrop-blur-lg"
-          @click.stop
-        >
+      <dialog :open="showModal" class="modal">
+        <div class="modal-box relative bg-white dark:bg-indigo-900/90 backdrop-blur-lg" @click.stop>
           <div class="text-center space-y-6">
             <!-- Success Animation -->
             <div class="w-24 h-24 mx-auto relative">
               <div class="absolute inset-0 rounded-full border-4 border-primary animate-success-circle"></div>
               <div class="absolute inset-0 flex items-center justify-center">
-                <Icon 
-                  name="ph:check-bold" 
-                  class="w-12 h-12 text-primary animate-success-check" 
-                />
+                <Icon name="ph:check-bold" class="w-12 h-12 text-primary animate-success-check" />
               </div>
             </div>
 
@@ -155,10 +119,7 @@
             </div>
 
             <!-- Close Button -->
-            <button 
-              @click="showModal = false"
-              class="btn btn-primary btn-block text-[#fff]"
-            >
+            <button @click="showModal = false" class="btn btn-primary btn-block text-[#fff]">
               Close
             </button>
           </div>
@@ -175,6 +136,8 @@
 
 <script setup>
 import { ref } from 'vue'
+import IInput from './Inspira/IInput.vue';
+import InteractiveHoverButton from './Inspira/InteractiveHoverButton.vue';
 
 const showModal = ref(false)
 
@@ -212,8 +175,13 @@ const handleSubmit = async (e) => {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
@@ -221,6 +189,7 @@ const handleSubmit = async (e) => {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -229,9 +198,17 @@ const handleSubmit = async (e) => {
 
 /* Form animations */
 @keyframes submit {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-2px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .btn[type="submit"]:active {
@@ -244,10 +221,12 @@ const handleSubmit = async (e) => {
     transform: scale(0.8);
     opacity: 0;
   }
+
   50% {
     transform: scale(1.2);
     opacity: 0.7;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
@@ -259,10 +238,12 @@ const handleSubmit = async (e) => {
     transform: scale(0) rotate(45deg);
     opacity: 0;
   }
+
   70% {
     transform: scale(1.3) rotate(5deg);
     opacity: 0.9;
   }
+
   100% {
     transform: scale(1) rotate(0);
     opacity: 1;

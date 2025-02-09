@@ -8,17 +8,17 @@
 
     <!-- Left Side Navigation & Project Info - Desktop -->
     <div class="absolute left-4 md:left-8 lg:left-16 top-0 h-full flex items-center z-10">
-      <div class="bg-white/80 dark:bg-indigo-900/80 backdrop-blur-md p-6 rounded-2xl w-64 hidden lg:block">
+      <div class="bg-white/80 backdrop-blur-md p-6 rounded-2xl w-64 hidden lg:block">
         <div class="space-y-4">
           <!-- Current Project Info -->
           <div class="space-y-2">
-            <span class="font-sans text-sm text-indigo-600 dark:text-indigo-300 font-medium">
+            <span class="font-sans text-sm text-indigo-600 font-medium">
               {{ currentProject.agency.role }}
             </span>
-            <h3 class="font-display text-xl font-bold text-indigo-950 dark:text-indigo-100">
+            <h3 class="font-display text-xl font-bold">
               {{ currentProject.title }}
             </h3>
-            <p class="font-sans text-sm text-indigo-600/80 dark:text-indigo-300/80">
+            <p class="font-sans text-sm text-indigo-600/80">
               {{ currentProject.description }}
             </p>
           </div>
@@ -27,9 +27,9 @@
           <div class="flex items-center justify-between">
             <button 
               @click="prev" 
-              class="btn btn-circle btn-sm bg-white dark:bg-indigo-800 hover:bg-indigo-50 dark:hover:bg-indigo-700"
+              class="btn btn-circle btn-sm bg-white hover:bg-indigo-50"
             >
-              <Icon name="mdi:chevron-left" class="w-5 h-5 text-indigo-600 dark:text-indigo-300" />
+              <Icon name="mdi:chevron-left" class="w-5 h-5 text-indigo-600" />
             </button>
             <div class="flex gap-2">
               <button 
@@ -39,16 +39,16 @@
                 class="w-2 h-2 rounded-full transition-all duration-300"
                 :class="[
                   currentIndex === index 
-                    ? 'w-6 bg-indigo-600 dark:bg-indigo-400' 
-                    : 'bg-indigo-200 dark:bg-indigo-700'
+                    ? 'w-6 bg-indigo-600' 
+                    : 'bg-indigo-200'
                 ]"
               />
             </div>
             <button 
               @click="next" 
-              class="btn btn-circle btn-sm bg-white dark:bg-indigo-800 hover:bg-indigo-50 dark:hover:bg-indigo-700"
+              class="btn btn-circle btn-sm bg-white hover:bg-indigo-50"
             >
-              <Icon name="mdi:chevron-right" class="w-5 h-5 text-indigo-600 dark:text-indigo-300" />
+              <Icon name="mdi:chevron-right" class="w-5 h-5 text-indigo-600" />
             </button>
           </div>
         </div>

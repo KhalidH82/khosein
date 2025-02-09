@@ -58,7 +58,7 @@
             </div>
 
             <!-- Introduction -->
-            <div class="space-y-4 p-6 bg-white/50 dark:bg-indigo-900/50 rounded-2xl backdrop-blur-sm">
+            <div class="space-y-4 p-6 bg-white/50  rounded-2xl backdrop-blur-sm">
               <h3 class="font-display text-2xl font-bold text-indigo-950 dark:text-indigo-100 flex items-center gap-3">
                 Hi, I'm Khalid
                 <span class="inline-block animate-wave">👋</span>
@@ -68,7 +68,7 @@
               </p>
               <!-- My journey in tech started with [your story here], and I've been passionate about creating innovative solutions ever since. -->
               <p class="font-sans leading-relaxed">
-                When I'm not coding, you'll find me <span class="inline-block animate-bounce">🏋🏽</span> <span class="inline-block animate-spin">🚴🏽‍♂️</span> <span class="inline-block animate-pulse">🛫</span> <span class="inline-block animate-float">🏝️</span> <span class="inline-block animate-bounce">⛰️</span>. I believe in continuous learning and staying up-to-date with the latest technologies.
+                When I'm not coding, you'll find me 🏋🏽 🚴🏽‍♂️ 🛫 🏝️ ⛰️. I believe in continuous learning and staying up-to-date with the latest technologies.
               </p>
               <!-- CTA Section -->
       <div class="flex flex-wrap gap-4 justify-center md:justify-start">
@@ -94,8 +94,8 @@
           <!-- Right Column - Skills -->
           <div class="lg:col-span-7 space-y-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <template v-for="(skills, category) in skillCategories" :key="category">
-                <div class="p-6 bg-white/50 dark:bg-indigo-900/50 rounded-2xl backdrop-blur-sm space-y-4 hover:shadow-xl transition-all duration-300">
+              <div v-for="(skills, category) in skillCategories" :key="category">
+                <div class="p-6 bg-white/50  rounded-2xl backdrop-blur-sm space-y-4 hover:shadow-xl transition-all duration-300">
                   <h4 class="font-display text-xl font-bold text-indigo-600 dark:text-indigo-400">
                     {{ category }}
                   </h4>
@@ -116,7 +116,7 @@
                     </div>
                   </div>
                 </div>
-              </template>
+              </div>
             </div>
           </div>
         </div>

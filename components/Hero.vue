@@ -1,43 +1,55 @@
 <template>
-  <div class="min-h-screen flex flex-col lg:flex-row justify-center items-center gap-12 px-4">
-    <div class="order-2 md:order-1 md:w-full lg:w-1/2 flex flex-col items-center md:items-start space-y-8">
-      <h1 class="font-display text-6xl md:text-8xl font-bold text-indigo-950 dark:text-indigo-100">
-        <span class="animate-slide-in inline-block">Khalid</span>
-        <span class="animate-slide-in inline-block animation-delay-300">Hosein</span>
-      </h1>
-      <h2 class="font-display text-2xl md:text-4xl text-indigo-600 dark:text-indigo-300 animate-fade-in animation-delay-600">
-        Full Stack Web Developer
-      </h2>
-      <p class="font-sans text-lg md:text-xl text-indigo-500 dark:text-indigo-400 max-w-lg animate-fade-in animation-delay-900">
-        Crafting elegant solutions to complex problems with modern web technologies.
-      </p>
-      <div class="flex gap-4 animate-fade-in animation-delay-1200">
-        <!-- <button class="btn btn-primary text-[#fff] hover:bg-indigo-700 dark:hover:bg-indigo-500">
-          View Projects
-        </button> -->
-        <NuxtLink 
-          to="/#contact" 
-          @click.prevent="scrollToContact"
-          class="btn btn-outline border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white dark:border-indigo-400 dark:text-indigo-400 dark:hover:bg-indigo-400 dark:hover:text-indigo-950"
-        >
-          Contact Me
-        </NuxtLink>
-      </div>
-    </div>
-    <div class="order-1 md:order-2 animate-float hidden lg:block">
-      <div class="relative w-72 md:w-[32rem] aspect-square rounded-full overflow-hidden shadow-2xl shadow-indigo-200 dark:shadow-indigo-900/50">
-        <img 
-          src="/khavatar.jpg" 
-          alt="Khalid Hosein"
-          class="w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 ring-2 ring-indigo-200 dark:ring-indigo-700 rounded-full"></div>
+  <div class="min-h-screen">
+    <div class="container mx-auto px-4 pt-24 lg:pt-0">
+      <div class="min-h-50 lg:min-h-screen flex flex-col-reverse lg:flex-row items-center gap-12">
+        <!-- Left Content -->
+        <div class="w-full lg:w-7/12">
+          <TextHoverEffect
+            class="w-full lg:w-[90%] h-52 lg:h-full"
+            text="Khalid Hosein"
+          />
+          <div class="space-y-6">
+            <h2 class="font-display text-3xl md:text-4xl text-indigo-600 animate-fade-up">
+              Full Stack Web Developer
+            </h2>
+            <p class="font-sans text-lg text-indigo-500 max-w-lg animate-fade-up animation-delay-200">
+              Crafting elegant solutions to complex problems with modern web technologies.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 animate-fade-up animation-delay-400">
+              <RainbowButton>
+                <NuxtLink to="/#projects">
+                  View Projects
+                </NuxtLink>
+              </RainbowButton>
+              <RainbowButton>
+                <NuxtLink to="/#contact" @click.prevent="scrollToContact">
+                  Contact
+                </NuxtLink>
+              </RainbowButton>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Content - Avatar -->
+        <div class="w-full lg:w-4/12 flex justify-center lg:justify-end">
+          <div class="relative w-full aspect-square rounded-full overflow-hidden shadow-2xl shadow-indigo-200">
+            <img 
+              src="/khavatar.jpg" 
+              alt="Khalid Hosein"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 ring-2 ring-indigo-200 rounded-full"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import TextHoverEffect from './Inspira/TextHoverEffect.vue';
+import RainbowButton from './Inspira/RainbowButton.vue';
+
 const scrollToContact = () => {
   const element = document.getElementById('contact')
   if (element) {
@@ -47,10 +59,15 @@ const scrollToContact = () => {
 </script>
 
 <style scoped>
-@keyframes slideIn {
+.animate-fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -58,54 +75,11 @@ const scrollToContact = () => {
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.animation-delay-200 {
+  animation-delay: 200ms;
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.animate-slide-in {
-  animation: slideIn 0.8s ease-out forwards;
-  opacity: 0;
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
-  opacity: 0;
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animation-delay-300 {
-  animation-delay: 300ms;
-}
-
-.animation-delay-600 {
-  animation-delay: 600ms;
-}
-
-.animation-delay-900 {
-  animation-delay: 900ms;
-}
-
-.animation-delay-1200 {
-  animation-delay: 1200ms;
+.animation-delay-400 {
+  animation-delay: 400ms;
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
-  <section class="py-24 bg-gradient-to-b from-white to-indigo-50 dark:from-indigo-900 dark:to-indigo-950">
+  <section class="py-24 bg-gradient-to-b from-white to-indigo-50">
     <div class="container mx-auto px-4">
       <!-- Header Section -->
       <div class="text-start mb-16">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-indigo-950 dark:text-indigo-100">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-indigo-950">
           Digital Profile
           <span class="text-primary">.</span>
         </h2>
@@ -14,7 +14,7 @@
         <!-- Left Column - Contact & Skills -->
         <div class="space-y-8">
           <!-- Contact Info Card -->
-          <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20">
+          <div class="card bg-white shadow-xl shadow-indigo-100">
             <div class="card-body">
               <h3 class="font-display text-2xl font-bold mb-4">Contact Info</h3>
               <div class="font-sans space-y-3">
@@ -32,14 +32,14 @@
           </div>
 
           <!-- Skills Card -->
-          <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20">
+          <div class="card bg-white shadow-xl shadow-indigo-100">
             <div class="card-body">
               <h3 class="font-display text-2xl font-bold mb-6">Technical Skills</h3>
               <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-3 gap-3">
                 <div 
                   v-for="skill in skills" 
                   :key="skill"
-                  class="group relative overflow-hidden rounded-lg bg-white/50 dark:bg-indigo-800/50 p-3 hover:bg-indigo-600 dark:hover:bg-indigo-700 transition-all duration-300"
+                  class="group relative overflow-hidden rounded-lg bg-white/50 p-3 hover:bg-indigo-600 transition-all duration-300"
                 >
                   <div class="relative z-10 flex items-center gap-2 transition-colors group-hover:text-white">
                     <Icon :name="getSkillIcon(skill)" class="w-5 h-5" />
@@ -52,7 +52,7 @@
           </div>
 
           <!-- Additional Info Card -->
-          <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20">
+          <div class="card bg-white shadow-xl shadow-indigo-100">
             <div class="card-body">
               <h3 class="font-display text-2xl font-bold mb-4">Additional Info</h3>
               <div class="font-sans space-y-2 text-base-content/80">
@@ -63,7 +63,7 @@
           </div>
 
           <!-- Links Card -->
-          <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20">
+          <div class="card bg-white shadow-xl shadow-indigo-100">
             <div class="card-body">
               <h3 class="font-display text-2xl font-bold mb-4">Professional Links</h3>
               <div class="flex flex-col gap-3">
@@ -85,7 +85,7 @@
         <!-- Center Column - Experience -->
         <div class="lg:col-span-2 space-y-8">
           <!-- Summary Card -->
-          <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20">
+          <div class="card bg-white shadow-xl shadow-indigo-100">
             <div class="card-body">
               <h3 class="font-display text-2xl font-bold mb-4">Professional Summary</h3>
               <p class="font-sans text-base-content/80 leading-relaxed">
@@ -95,7 +95,7 @@
           </div>
 
           <!-- Skills & Competencies -->
-          <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20">
+          <div class="card bg-white shadow-xl shadow-indigo-100">
             <div class="card-body">
               <h3 class="font-display text-2xl font-bold mb-6">Skills & Competencies</h3>
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -160,7 +160,7 @@
           </div>
 
           <!-- Experience Timeline -->
-          <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20">
+          <div class="card bg-white shadow-xl shadow-indigo-100">
             <div class="card-body">
               <h3 class="font-display text-2xl font-bold mb-6">Work Experience</h3>
               <div class="space-y-8">
@@ -194,7 +194,7 @@
           </div>
 
           <!-- Education -->
-          <div class="card bg-white dark:bg-indigo-900/50 shadow-xl shadow-indigo-100 dark:shadow-indigo-900/20">
+          <div class="card bg-white shadow-xl shadow-indigo-100">
             <div class="card-body">
               <h3 class="font-display text-2xl font-bold mb-4">Education</h3>
               <div class="space-y-2">
@@ -422,11 +422,4 @@ const getSkillIcon = (skill) => {
 </script>
 
 <style scoped>
-.border-l-2 {
-  transition: border-color 0.3s ease;
-}
-
-.border-l-2:hover {
-  border-color: theme('colors.primary');
-}
 </style> 
