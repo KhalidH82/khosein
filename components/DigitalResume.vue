@@ -17,7 +17,7 @@
           <div class="card bg-white shadow-lg">
             <div class="card-body">
               <h3 class="font-display text-2xl font-bold mb-4 text-indigo-950">Contact Info</h3>
-              <div class="font-sans space-y-3 text-indigo-950">
+              <div class="font-sans space-y-3">
                 <a 
                   v-for="contact in contactInfo" 
                   :key="contact.label"
@@ -43,7 +43,7 @@
                 >
                   <div class="relative z-10 flex items-center gap-2 transition-colors group-hover:text-white">
                     <Icon :name="getSkillIcon(skill)" class="w-5 h-5" />
-                    <span class="font-sans text-sm font-medium">{{ skill }}</span>
+                    <span class="font-sans text-sm font-medium text-indigo-950 group-hover:text-white">{{ skill }}</span>
                   </div>
                   <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100"></div>
                 </div>
@@ -72,7 +72,7 @@
                   :key="link.url"
                   :href="link.url"
                   target="_blank"
-                  class="btn btn-outline gap-2 hover:scale-105 transition-transform"
+                  class="btn btn-outline gap-2 hover:scale-105 transition-transform text-indigo-950 hover:text-white"
                 >
                   <Icon :name="link.icon" class="w-5 h-5" />
                   {{ link.label }}
@@ -88,7 +88,7 @@
           <div class="card bg-white shadow-lg">
             <div class="card-body">
               <h3 class="font-display text-2xl font-bold mb-4 text-indigo-950">Professional Summary</h3>
-              <p class="font-sans text-indigo-950 leading-relaxed">
+              <p class="font-sans text-indigo-950">
                 {{ professionalSummary }}
               </p>
             </div>
@@ -99,59 +99,16 @@
             <div class="card-body">
               <h3 class="font-display text-2xl font-bold mb-6 text-indigo-950">Skills & Competencies</h3>
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Development -->
-                <div class="space-y-3">
-                  <h4 class="font-display text-lg font-semibold text-primary">Development</h4>
+                <div v-for="(section, title) in competencies" :key="title" class="space-y-3">
+                  <h4 class="font-display text-lg font-semibold text-indigo-950">{{ title }}</h4>
                   <ul class="space-y-2">
-                    <li class="flex items-center gap-2">
+                    <li 
+                      v-for="skill in section" 
+                      :key="skill"
+                      class="flex items-center gap-2 text-indigo-950"
+                    >
                       <Icon name="mdi:check-circle" class="w-5 h-5 text-primary" />
-                      <span>Full Stack Development</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                      <Icon name="mdi:check-circle" class="w-5 h-5 text-primary" />
-                      <span>Website Functionality</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                      <Icon name="mdi:check-circle" class="w-5 h-5 text-primary" />
-                      <span>Layout Improvement</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <!-- Management -->
-                <div class="space-y-3">
-                  <h4 class="font-display text-lg font-semibold text-primary">Management</h4>
-                  <ul class="space-y-2">
-                    <li class="flex items-center gap-2">
-                      <Icon name="mdi:check-circle" class="w-5 h-5 text-primary" />
-                      <span>Project Management</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                      <Icon name="mdi:check-circle" class="w-5 h-5 text-primary" />
-                      <span>Stakeholder Relations</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                      <Icon name="mdi:check-circle" class="w-5 h-5 text-primary" />
-                      <span>Agile Methodology</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <!-- Technical -->
-                <div class="space-y-3">
-                  <h4 class="font-display text-lg font-semibold text-primary">Technical</h4>
-                  <ul class="space-y-2">
-                    <li class="flex items-center gap-2">
-                      <Icon name="mdi:check-circle" class="w-5 h-5 text-primary" />
-                      <span>User Acceptance Testing</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                      <Icon name="mdi:check-circle" class="w-5 h-5 text-primary" />
-                      <span>SEO</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                      <Icon name="mdi:check-circle" class="w-5 h-5 text-primary" />
-                      <span>Content Management</span>
+                      <span>{{ skill }}</span>
                     </li>
                   </ul>
                 </div>
@@ -416,6 +373,30 @@ const getSkillIcon = (skill) => {
   }
 
   return iconMap[skill] || 'mdi:code-tags'
+}
+
+const competencies = {
+  'Frontend Development': [
+    'Modern JavaScript Frameworks',
+    'Responsive Web Design',
+    'Performance Optimization',
+    'Cross-browser Compatibility',
+    'Progressive Web Apps'
+  ],
+  'Backend Development': [
+    'RESTful API Design',
+    'Database Architecture',
+    'Server-side Rendering',
+    'Authentication & Security',
+    'Microservices Architecture'
+  ],
+  'Professional Skills': [
+    'Agile Development',
+    'Technical Leadership',
+    'Code Review & Mentoring',
+    'Project Planning',
+    'Client Communication'
+  ]
 }
 </script>
 
