@@ -30,7 +30,7 @@
             <!-- Form Fields -->
             <div v-for="field in formFields" :key="field.id">
               <div class="form-control relative">
-                <UiLabel for="field.id" class="ml-4 w-full font-sans text-base-content/60 duration-300 transform -translate-y-3 scale-75 top-6 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary">{{ field.label }}</UiLabel>
+                <UiLabel for="field.id" class="ml-4 w-full font-sans text-base-content/60 duration-300 transform -translate-y-3 scale-75 top-6 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary text-indigo-950">{{ field.label }}</UiLabel>
                 <IInput  
                 v-if="field.type == 'textarea' || 'textarea'"
                 :type="field.type" 

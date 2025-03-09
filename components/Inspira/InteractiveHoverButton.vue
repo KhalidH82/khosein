@@ -9,7 +9,7 @@
       "
     >
       <span
-        class="inline-block translate-x-1 transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0"
+        class="inline-block translate-x-1 transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0 text-indigo-950"
       >
         {{ text }}
       </span>
