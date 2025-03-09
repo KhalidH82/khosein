@@ -14,16 +14,19 @@
 
       <!-- Contact Form -->
       <div class="max-w-lg mx-auto">
-        <form action="/" name="contact" method="POST" data-netlify="true"
-          netlify-honeypot="bot-field" class="card bg-white shadow-xl shadow-indigo-100 animate-slide-up">
-          <!-- Add this hidden input for Netlify form handling -->
+        <form 
+          name="contact" 
+          method="POST" 
+          netlify
+          data-netlify="true"
+          class="card bg-white shadow-xl shadow-indigo-100 animate-slide-up"
+        >
+          <!-- Required for Netlify forms -->
           <input type="hidden" name="form-name" value="contact" />
-
-          <!-- Add this for spam prevention -->
+          
+          <!-- Bot field for spam prevention -->
           <div class="hidden">
-            <label>
-              Don't fill this out if you're human: <input name="bot-field" />
-            </label>
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
           </div>
 
           <div class="card-body space-y-6">
@@ -51,7 +54,9 @@
 
             <!-- Submit Button -->
             <div class="form-control mt-6">
-              <InteractiveHoverButton type="submit" text="Send Message" class="w-full" />
+              <button type="submit" class="btn btn-primary text-white w-full hover:bg-indigo-700">
+                Send Message
+              </button>
             </div>
           </div>
         </form>
