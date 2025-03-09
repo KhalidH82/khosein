@@ -15,10 +15,10 @@
       <!-- Contact Form -->
       <div class="max-w-lg mx-auto">
         <form 
-          name="contact" 
-          method="POST" 
-          netlify
+          name="contact"
           data-netlify="true"
+          method="POST"
+          netlify-honeypot="bot-field"
           class="card bg-white shadow-xl shadow-indigo-100 animate-slide-up"
         >
           <!-- Required for Netlify forms -->
