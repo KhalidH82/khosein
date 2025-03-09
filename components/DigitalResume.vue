@@ -14,15 +14,15 @@
         <!-- Left Column - Contact & Skills -->
         <div class="space-y-8">
           <!-- Contact Info Card -->
-          <div class="card bg-white shadow-xl shadow-indigo-100">
+          <div class="card bg-white shadow-lg">
             <div class="card-body">
-              <h3 class="font-display text-2xl font-bold mb-4">Contact Info</h3>
+              <h3 class="font-display text-2xl font-bold mb-4 text-indigo-950">Contact Info</h3>
               <div class="font-sans space-y-3">
                 <a 
                   v-for="contact in contactInfo" 
                   :key="contact.label"
                   :href="contact.href"
-                  class="flex items-center gap-3 hover:text-primary transition-colors"
+                  class="flex items-center gap-3 text-indigo-600 hover:text-primary transition-colors"
                 >
                   <Icon :name="contact.icon" class="w-5 h-5" />
                   <span>{{ contact.label }}</span>
@@ -32,14 +32,14 @@
           </div>
 
           <!-- Skills Card -->
-          <div class="card bg-white shadow-xl shadow-indigo-100">
+          <div class="card bg-white shadow-lg">
             <div class="card-body">
-              <h3 class="font-display text-2xl font-bold mb-6">Technical Skills</h3>
+              <h3 class="font-display text-2xl font-bold mb-6 text-indigo-950">Technical Skills</h3>
               <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-3 gap-3">
                 <div 
                   v-for="skill in skills" 
                   :key="skill"
-                  class="group relative overflow-hidden rounded-lg bg-white/50 p-3 hover:bg-indigo-600 transition-all duration-300"
+                  class="group relative overflow-hidden rounded-lg bg-white p-3 hover:bg-indigo-600 transition-all duration-300"
                 >
                   <div class="relative z-10 flex items-center gap-2 transition-colors group-hover:text-white">
                     <Icon :name="getSkillIcon(skill)" class="w-5 h-5" />
@@ -52,10 +52,10 @@
           </div>
 
           <!-- Additional Info Card -->
-          <div class="card bg-white shadow-xl shadow-indigo-100">
+          <div class="card bg-white shadow-lg">
             <div class="card-body">
-              <h3 class="font-display text-2xl font-bold mb-4">Additional Info</h3>
-              <div class="font-sans space-y-2 text-base-content/80">
+              <h3 class="font-display text-2xl font-bold mb-4 text-indigo-950">Additional Info</h3>
+              <div class="font-sans space-y-2 text-indigo-600/70">
                 <p>Willing to relocate: Anywhere</p>
                 <p>Authorized to work in the US for any employer</p>
               </div>
@@ -63,9 +63,9 @@
           </div>
 
           <!-- Links Card -->
-          <div class="card bg-white shadow-xl shadow-indigo-100">
+          <div class="card bg-white shadow-lg">
             <div class="card-body">
-              <h3 class="font-display text-2xl font-bold mb-4">Professional Links</h3>
+              <h3 class="font-display text-2xl font-bold mb-4 text-indigo-950">Professional Links</h3>
               <div class="flex flex-col gap-3">
                 <a 
                   v-for="link in professionalLinks" 
@@ -85,19 +85,19 @@
         <!-- Center Column - Experience -->
         <div class="lg:col-span-2 space-y-8">
           <!-- Summary Card -->
-          <div class="card bg-white shadow-xl shadow-indigo-100">
+          <div class="card bg-white shadow-lg">
             <div class="card-body">
-              <h3 class="font-display text-2xl font-bold mb-4">Professional Summary</h3>
-              <p class="font-sans text-base-content/80 leading-relaxed">
+              <h3 class="font-display text-2xl font-bold mb-4 text-indigo-950">Professional Summary</h3>
+              <p class="font-sans text-indigo-600/70 leading-relaxed">
                 {{ professionalSummary }}
               </p>
             </div>
           </div>
 
           <!-- Skills & Competencies -->
-          <div class="card bg-white shadow-xl shadow-indigo-100">
+          <div class="card bg-white shadow-lg">
             <div class="card-body">
-              <h3 class="font-display text-2xl font-bold mb-6">Skills & Competencies</h3>
+              <h3 class="font-display text-2xl font-bold mb-6 text-indigo-950">Skills & Competencies</h3>
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Development -->
                 <div class="space-y-3">
@@ -160,25 +160,23 @@
           </div>
 
           <!-- Experience Timeline -->
-          <div class="card bg-white shadow-xl shadow-indigo-100">
+          <div class="card bg-white shadow-lg">
             <div class="card-body">
-              <h3 class="font-display text-2xl font-bold mb-6">Work Experience</h3>
+              <h3 class="font-display text-2xl font-bold mb-6 text-indigo-950">Work Experience</h3>
               <div class="space-y-8">
                 <div 
                   v-for="job in experience" 
                   :key="job.company + job.period"
                   class="relative pl-6 pb-8 border-l-2 border-primary last:pb-0"
                 >
-                  <!-- Timeline Dot -->
                   <div class="absolute -left-[9px] top-0 w-4 h-4 bg-primary rounded-full"></div>
-                  
                   <div class="space-y-2">
                     <div class="flex justify-between items-start flex-wrap gap-2">
-                      <h4 class="font-display text-xl font-bold">{{ job.title }}</h4>
+                      <h4 class="font-display text-xl font-bold text-indigo-950">{{ job.title }}</h4>
                       <span class="font-sans text-sm text-primary">{{ job.period }}</span>
                     </div>
-                    <h5 class="font-sans text-lg text-base-content/70">{{ job.company }} - {{ job.location }}</h5>
-                    <ul class="list-disc list-inside space-y-2 text-base-content/80">
+                    <h5 class="font-sans text-lg text-indigo-600/70">{{ job.company }} - {{ job.location }}</h5>
+                    <ul class="list-disc list-inside space-y-2 text-indigo-600/70">
                       <li 
                         v-for="(responsibility, index) in job.responsibilities" 
                         :key="index"
@@ -194,12 +192,12 @@
           </div>
 
           <!-- Education -->
-          <div class="card bg-white shadow-xl shadow-indigo-100">
+          <div class="card bg-white shadow-lg">
             <div class="card-body">
-              <h3 class="font-display text-2xl font-bold mb-4">Education</h3>
+              <h3 class="font-display text-2xl font-bold mb-4 text-indigo-950">Education</h3>
               <div class="space-y-2">
-                <h4 class="font-display text-xl font-bold">Certificate in Full Stack Web Development</h4>
-                <p class="font-sans text-lg text-base-content/70">General Assembly - New York, NY</p>
+                <h4 class="font-display text-xl font-bold text-indigo-950">Certificate in Full Stack Web Development</h4>
+                <p class="font-sans text-lg text-indigo-600/70">General Assembly - New York, NY</p>
                 <p class="font-sans text-sm text-primary">January 2018 to April 2018</p>
               </div>
             </div>
