@@ -72,7 +72,7 @@
                   :key="link.url"
                   :href="link.url"
                   target="_blank"
-                  class="btn btn-outline gap-2 hover:scale-105 transition-transform text-indigo-950 hover:text-white"
+                  class="btn btn-outline gap-2 hover:scale-105 transition-transform text-indigo-950 hover:text-white hover:bg-dot-indigo-950"
                 >
                   <Icon :name="link.icon" class="w-5 h-5" />
                   {{ link.label }}
