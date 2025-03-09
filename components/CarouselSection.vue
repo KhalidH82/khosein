@@ -8,7 +8,7 @@
 
     <!-- Left Side Navigation & Project Info - Desktop -->
     <div class="absolute left-4 md:left-8 lg:left-16 top-0 h-full flex items-center z-10">
-      <div class="bg-white/80 backdrop-blur-md p-6 rounded-2xl w-64 hidden lg:block">
+      <div class="bg-white/80 backdrop-blur-md p-6 rounded-2xl w-96 hidden lg:block">
         <div class="space-y-4">
           <!-- Current Project Info -->
           <div class="space-y-2">

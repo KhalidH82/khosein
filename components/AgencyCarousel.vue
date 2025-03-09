@@ -65,7 +65,7 @@ const t2MarketingCommuncationsProjects = [
     title: 'Magnaplate',
     description: '',
     image: '/t2marcom/Magnaplate.webp',
-    technologies: ['Vue.js', 'Nuxt.js'],
+    technologies: ['Vue.js', 'Nuxt.js', 'Directus'],
     liveUrl: 'https://www.magnaplate.com/',
     agency: {
       name: 'T2 Marketing Communications',
@@ -78,7 +78,7 @@ const t2MarketingCommuncationsProjects = [
     title: 'Mennekes',
     description: '',
     image: '/t2marcom/Mennekes.webp',
-    technologies: ['Vue.js', 'Nuxt.js'],
+    technologies: ['Vue.js', 'Nuxt.js', 'Directus'],
     liveUrl: 'https://www.mennekes.com/',
     agency: {
       name: 'T2 Marketing Communications',
@@ -130,7 +130,7 @@ const t2MarketingCommuncationsProjects = [
     title: 'World Water Works',
     description: '',
     image: '/t2marcom/WWW.webp',
-    technologies: ['Vue.js', 'Nuxt.js'],
+    technologies: ['Vue.js', 'Nuxt.js', 'Directus'],
     liveUrl: 'https://www.worldwaterworks.com/',
     agency: {
       name: 'T2 Marketing Communications',
@@ -146,7 +146,7 @@ const thoriumDigitalProjects = [
     title: 'Belsazar',
     description: '',
     image: '/thorium/Belsazar.webp',
-    technologies: ['React', 'Express', 'PostgreSQL'],
+    technologies: ['Nunjucks', 'Handlebars', 'jQuery', 'Gulp', 'SASS'],
     liveUrl: 'https://www.belsazar.com/en-de/',
     agency: {
       name: 'Thorium Digital',
@@ -159,7 +159,7 @@ const thoriumDigitalProjects = [
     title: 'Buchanans',
     description: '',
     image: '/thorium/Buchanans.webp',
-    technologies: ['React', 'Express', 'PostgreSQL'],
+    technologies: ['Nunjucks', 'Handlebars', 'jQuery', 'Gulp'],
     liveUrl: 'https://www.buchananswhisky.com/en-us',
     agency: {
       name: 'Thorium Digital',
@@ -172,7 +172,7 @@ const thoriumDigitalProjects = [
     title: 'Bulleit',
     description: '',
     image: '/thorium/Bulleit.webp',
-    technologies: ['React', 'Express', 'PostgreSQL'],
+    technologies: ['Nunjucks', 'Handlebars', 'jQuery', 'Grunt', 'Gulp'],
     liveUrl: 'https://www.bulleit.com/',
     agency: {
       name: 'Thorium Digital',
@@ -185,7 +185,7 @@ const thoriumDigitalProjects = [
     title: 'Cascade Moon',
     description: '',
     image: '/thorium/CascadeMoon.webp',
-    technologies: ['React', 'Express', 'PostgreSQL'],
+    technologies: ['Nunjucks', 'Handlebars', 'jQuery', 'Grunt', 'Gulp'],
     liveUrl: 'https://www.cascademooneditions.com/',
     agency: {
       name: 'Thorium Digital',
@@ -198,7 +198,7 @@ const thoriumDigitalProjects = [
     title: 'Casamigos',
     description: '',
     image: '/thorium/Casamigos.webp',
-    technologies: ['React', 'Express', 'PostgreSQL'],
+    technologies: ['React', 'Express', 'MobX', 'Bootstrap'],
     liveUrl: 'https://www.casamigos.com/en-us',
     agency: {
       name: 'Thorium Digital',
@@ -211,7 +211,7 @@ const thoriumDigitalProjects = [
     title: 'Ciroc',
     description: '',
     image: '/thorium/Ciroc.webp',
-    technologies: ['React', 'Express', 'PostgreSQL'],
+    technologies: ['React', 'jQuery', 'Express', 'Gulp', 'Bootstrap'],
     liveUrl: 'https://www.ciroc.com/en-us',
     agency: {
       name: 'Thorium Digital',
@@ -224,7 +224,7 @@ const thoriumDigitalProjects = [
     title: 'Don Julio',
     description: '',
     image: '/thorium/DonJulio.webp',
-    technologies: ['React', 'Express', 'PostgreSQL'],
+    technologies: ['React', 'Next.js', 'jQuery', 'Express', 'SASS'],
     liveUrl: 'https://www.donjulio.com/',
     agency: {
       name: 'Thorium Digital',
@@ -237,7 +237,7 @@ const thoriumDigitalProjects = [
     title: 'Guinness Nitrosurge',
     description: '',
     image: '/thorium/GuinnessNitrosurge.webp',
-    technologies: ['React', 'Express', 'PostgreSQL'],
+    technologies: ['React', 'MobX', 'Gulp'],
     liveUrl: 'https://nitrosurge.guinness.com/en/',
     agency: {
       name: 'Thorium Digital',
@@ -250,7 +250,7 @@ const thoriumDigitalProjects = [
     title: 'Guinness Opengate Brewery Baltimore',
     description: '',
     image: '/thorium/GuinnessOpenGate.webp',
-    technologies: ['React', 'Express', 'PostgreSQL'],
+    technologies: ['React', 'MobX', 'Gulp'],
     liveUrl: 'https://www.guinnessbrewerybaltimore.com/',
     agency: {
       name: 'Thorium Digital',
@@ -263,7 +263,7 @@ const thoriumDigitalProjects = [
     title: 'Ketel One',
     description: '',
     image: '/thorium/KetelOne.webp',
-    technologies: ['React', 'Express', 'PostgreSQL'],
+    technologies: ['React', 'Next', 'Handlebars', 'Umbraco'],
     liveUrl: 'https://www.ketelone.com/',
     agency: {
       name: 'Thorium Digital',
@@ -276,7 +276,7 @@ const thoriumDigitalProjects = [
     title: 'Kikori',
     description: '',
     image: '/thorium/Kikori.webp',
-    technologies: ['React', 'Express', 'PostgreSQL'],
+    technologies: ['Nunjucks', 'Gulp'],
     liveUrl: 'https://www.kikoriwhiskey.com/',
     agency: {
       name: 'Thorium Digital',
@@ -289,7 +289,7 @@ const thoriumDigitalProjects = [
     title: 'Orphan Barrel',
     description: '',
     image: '/thorium/OrphanBarrel.webp',
-    technologies: ['React', 'Express', 'PostgreSQL'],
+    technologies: ['jQuery', 'Gulp', 'Express'],
     liveUrl: 'https://www.orphanbarrel.com/',
     agency: {
       name: 'Thorium Digital',
@@ -302,7 +302,7 @@ const thoriumDigitalProjects = [
     title: 'Seedlip Drinks',
     description: '',
     image: '/thorium/Seedlip.webp',
-    technologies: ['React', 'Express', 'PostgreSQL'],
+    technologies: ['React', 'Next', 'jQuery', 'Express', 'GraphQL', 'Shopify' ],
     liveUrl: 'https://www.seedlipdrinks.com/en-us/',
     agency: {
       name: 'Thorium Digital',
@@ -315,7 +315,7 @@ const thoriumDigitalProjects = [
     title: 'Stitzel Weller Distillery',
     description: '',
     image: '/thorium/StitzelWeller.webp',
-    technologies: ['React', 'Express', 'PostgreSQL'],
+    technologies: ['React', 'Express', 'MobX', 'SASS', 'Bootstrap'],
     liveUrl: 'https://www.stitzelwellerdistillery.com/',
     agency: {
       name: 'Thorium Digital',
@@ -328,7 +328,7 @@ const thoriumDigitalProjects = [
     title: 'Yuzuri',
     description: '',
     image: '/thorium/Yuzuri.webp',
-    technologies: ['React', 'Express', 'PostgreSQL'],
+    technologies: ['Handlebars', 'jQuery', 'Gulp'],
     liveUrl: 'https://www.yuzuriliqueur.com/',
     agency: {
       name: 'Thorium Digital',

@@ -17,17 +17,13 @@
             <p class="font-sans text-lg text-indigo-500 max-w-lg animate-fade-up animation-delay-200">
               Crafting elegant solutions to complex problems with modern web technologies.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 animate-fade-up animation-delay-400">
-              <RainbowButton>
-                <NuxtLink to="/#projects">
-                  View Projects
+            <div class="w-full flex flex-col sm:flex-row gap-4 animate-fade-up animation-delay-400">
+              <NuxtLink to="/#projects">
+               <InteractiveHoverButton text="View Projects" class="w-full sm:w-[250px]" />
                 </NuxtLink>
-              </RainbowButton>
-              <RainbowButton>
                 <NuxtLink to="/#contact" @click.prevent="scrollToContact">
-                  Contact
+                  <InteractiveHoverButton text="Contact" class="w-full sm:w-[250px]" />
                 </NuxtLink>
-              </RainbowButton>
             </div>
           </div>
         </div>
@@ -50,7 +46,7 @@
 
 <script setup>
 import TextHoverEffect from './Inspira/TextHoverEffect.vue';
-import RainbowButton from './Inspira/RainbowButton.vue';
+import InteractiveHoverButton from './Inspira/InteractiveHoverButton.vue';
 
 const scrollToContact = () => {
   const element = document.getElementById('contact')

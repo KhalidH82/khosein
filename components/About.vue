@@ -68,7 +68,7 @@
               </p>
               <!-- My journey in tech started with [your story here], and I've been passionate about creating innovative solutions ever since. -->
               <p class="font-sans leading-relaxed">
-                When I'm not coding, you'll find me 🏋🏽 🚴🏽‍♂️ 🛫 🏝️ ⛰️. I believe in continuous learning and staying up-to-date with the latest technologies.
+                When I'm not coding, you'll find me 🏋🏽 🚴🏽‍♂️ 🛫 🏝️ ⛰️.
               </p>
               <!-- CTA Section -->
       <div class="flex flex-wrap gap-4 justify-center md:justify-start">
