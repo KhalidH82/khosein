@@ -14,7 +14,7 @@
 
       <!-- Contact Form -->
       <div class="max-w-lg mx-auto">
-        <form @submit.prevent="handleSubmit" name="contact" method="POST" data-netlify="true"
+        <form action="/" name="contact" method="POST" data-netlify="true"
           netlify-honeypot="bot-field" class="card bg-white shadow-xl shadow-indigo-100 animate-slide-up">
           <!-- Add this hidden input for Netlify form handling -->
           <input type="hidden" name="form-name" value="contact" />
