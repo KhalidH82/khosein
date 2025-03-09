@@ -2,6 +2,14 @@ import animate from "tailwindcss-animate";
 import { setupInspiraUI } from "@inspira-ui/plugins";
 
 export default {
+  content: [
+    "./components/**/*.{js,vue,ts}",
+    "./layouts/**/*.vue",
+    "./pages/**/*.vue",
+    "./plugins/**/*.{js,ts}",
+    "./app.vue",
+    "./error.vue",
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -66,4 +74,23 @@ export default {
     },
   },
   plugins: [animate, setupInspiraUI, require('daisyui')],
+  daisyui: {
+    themes: [
+      {
+        light: {
+          ...require('daisyui/src/theming/themes')['light'],
+          primary: '#4f46e5',
+          'primary-focus': '#4338ca',
+          'primary-content': '#ffffff',
+          secondary: '#818cf8',
+          accent: '#312e81',
+          neutral: '#1e1b4b',
+          'base-100': '#ffffff',
+          'base-200': '#f3f4f6',
+          'base-300': '#e5e7eb',
+          'base-content': '#1e1b4b',
+        }
+      }
+    ]
+  }
 };
