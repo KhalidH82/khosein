@@ -3,11 +3,11 @@
     <div class="container mx-auto px-4">
       <!-- Section Header -->
       <div class="text-center mb-16 animate-fade-in">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-indigo-950">
           Get In Touch
           <span class="text-primary">.</span>
         </h2>
-        <p class="font-sans text-base-content/60 max-w-2xl mx-auto">
+        <p class="font-sans text-base-content/60 max-w-2xl mx-auto text-indigo-950">
           Have a project in mind? Let's discuss how we can work together.
         </p>
       </div>

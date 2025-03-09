@@ -15,7 +15,7 @@
             <span class="font-sans text-sm text-indigo-600 font-medium">
               {{ currentProject.agency.role }}
             </span>
-            <h3 class="font-display text-xl font-bold">
+            <h3 class="font-display text-xl font-bold text-indigo-950">
               {{ currentProject.title }}
             </h3>
             <p class="font-sans text-sm text-indigo-600/80">
