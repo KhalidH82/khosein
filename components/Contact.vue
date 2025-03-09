@@ -29,16 +29,20 @@
           <div class="card-body space-y-6">
             <!-- Form Fields -->
             <div v-for="field in formFields" :key="field.id">
-              <div class="form-control relative">
-                <UiLabel :for="field.id" class="ml-4 font-sans text-indigo-950">
+              <div class="form-control relative group">
+                <UiLabel 
+                  :for="field.id" 
+                  class="absolute left-4 -top-3 px-2 bg-white text-indigo-950 font-display text-sm transition-all duration-300 z-10"
+                >
                   {{ field.label }}
+                  <span class="absolute inset-0 bg-white -z-10 rounded transform -skew-x-12"></span>
                 </UiLabel>
                 <IInput  
                   :type="field.type" 
                   :name="field.name"
                   :id="field.id"
                   required
-                  class="input bg-indigo-50 border-indigo-200 w-full focus:border-primary"
+                  class="input bg-white border-2 border-indigo-100 w-full focus:border-primary pt-4 transition-all duration-300"
                   placeholder=" "
                   container-class="w-full"
                 />
@@ -145,10 +149,24 @@ import InteractiveHoverButton from './Inspira/InteractiveHoverButton.vue';
 const showModal = ref(false)
 
 const formFields = [
-  { id: 'name', name: 'name', type: 'text', label: 'Your Name' },
-  { id: 'email', name: 'email', type: 'email', label: 'Email Address' },
-  { id: 'subject', name: 'subject', type: 'text', label: 'Subject' },
-  { id: 'message', name: 'message', type: 'textarea', label: 'Your Message' }
+  {
+    id: 'name',
+    name: 'name',
+    type: 'text',
+    label: '< Name />'
+  },
+  {
+    id: 'email',
+    name: 'email',
+    type: 'email',
+    label: '< Email />'
+  },
+  {
+    id: 'message',
+    name: 'message',
+    type: 'textarea',
+    label: '< Message />'
+  }
 ]
 
 const handleSubmit = async (e) => {
@@ -278,5 +296,13 @@ const handleSubmit = async (e) => {
 
 .modal.modal-open .modal-box {
   @apply scale-100 opacity-100;
+}
+
+.form-control:focus-within label {
+  @apply text-primary transform -translate-y-1;
+}
+
+.input:focus {
+  @apply border-primary shadow-sm shadow-primary/10;
 }
 </style>
