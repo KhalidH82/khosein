@@ -7,7 +7,7 @@
           Get In Touch
           <span class="text-primary">.</span>
         </h2>
-        <p class="font-sans text-base-content/60 max-w-2xl mx-auto text-indigo-950">
+        <p class="font-sans text-indigo-600/70 max-w-2xl mx-auto">
           Have a project in mind? Let's discuss how we can work together.
         </p>
       </div>
@@ -30,15 +30,18 @@
             <!-- Form Fields -->
             <div v-for="field in formFields" :key="field.id">
               <div class="form-control relative">
-                <UiLabel for="field.id" class="ml-4 w-full font-sans text-base-content/60 duration-300 transform -translate-y-3 scale-75 top-6 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary text-indigo-950">{{ field.label }}</UiLabel>
+                <UiLabel :for="field.id" class="ml-4 font-sans text-indigo-600/70">
+                  {{ field.label }}
+                </UiLabel>
                 <IInput  
-                v-if="field.type == 'textarea' || 'textarea'"
-                :type="field.type" 
-                :name="field.name"
-                :id="field.id"
+                  :type="field.type" 
+                  :name="field.name"
+                  :id="field.id"
                   required
-                  class="input bg-indigo-50  border-indigo-200 w-full peer focus:border-primary"
-                  placeholder=" " container-class="w-full"></IInput>
+                  class="input bg-indigo-50 border-indigo-200 w-full focus:border-primary"
+                  placeholder=" "
+                  container-class="w-full"
+                />
               </div>
             </div>
 

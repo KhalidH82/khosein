@@ -5,9 +5,9 @@
       <div class="text-center mb-24">
         <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-indigo-950">
           About Me
-          <span class="text-indigo-600">.</span>
+          <span class="text-primary">.</span>
         </h2>
-        <p class="font-sans text-base-content/60 max-w-2xl mx-auto">
+        <p class="font-sans text-indigo-600/70 max-w-2xl mx-auto">
           Passionate about creating meaningful web experiences and solving complex problems through clean, efficient code.
         </p>
       </div>
@@ -58,7 +58,7 @@
             </div>
 
             <!-- Introduction -->
-            <div class="space-y-4 p-6 bg-white/50  rounded-2xl backdrop-blur-sm">
+            <div class="space-y-4 p-6 bg-white rounded-2xl shadow-lg">
               <h3 class="font-display text-2xl font-bold text-indigo-950 flex items-center gap-3">
                 Hi, I'm Khalid
                 <span class="inline-block animate-wave">👋</span>
@@ -95,7 +95,7 @@
           <div class="lg:col-span-7 space-y-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div v-for="(skills, category) in skillCategories" :key="category">
-                <div class="p-6 bg-white/50  rounded-2xl backdrop-blur-sm space-y-4 hover:shadow-xl transition-all duration-300">
+                <div class="p-6 bg-white rounded-2xl shadow-lg space-y-4 hover:shadow-xl transition-all duration-300">
                   <h4 class="font-display text-xl font-bold text-indigo-600">
                     {{ category }}
                   </h4>
@@ -103,7 +103,7 @@
                     <div 
                       v-for="skill in skills" 
                       :key="skill"
-                      class="group relative overflow-hidden rounded-lg bg-white/50 p-3 hover:bg-indigo-600 transition-all duration-300"
+                      class="group relative overflow-hidden rounded-lg bg-white p-3 hover:bg-indigo-600 transition-all duration-300"
                     >
                       <div class="relative z-10 flex items-center gap-2 transition-colors group-hover:text-white">
                         <div v-if="skill === 'Cursor'">
