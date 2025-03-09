@@ -2,10 +2,6 @@ import animate from "tailwindcss-animate";
 import { setupInspiraUI } from "@inspira-ui/plugins";
 
 export default {
-  darkMode: "selector",
-  safelist: ["dark"],
-  prefix: "",
-  content: [],
   theme: {
     extend: {
       fontFamily: {
