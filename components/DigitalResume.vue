@@ -17,12 +17,12 @@
           <div class="card bg-white shadow-lg">
             <div class="card-body">
               <h3 class="font-display text-2xl font-bold mb-4 text-indigo-950">Contact Info</h3>
-              <div class="font-sans space-y-3">
+              <div class="font-sans space-y-3 text-indigo-950">
                 <a 
                   v-for="contact in contactInfo" 
                   :key="contact.label"
                   :href="contact.href"
-                  class="flex items-center gap-3 text-indigo-600 hover:text-primary transition-colors"
+                  class="flex items-center gap-3 text-indigo-950 hover:text-primary transition-colors"
                 >
                   <Icon :name="contact.icon" class="w-5 h-5" />
                   <span>{{ contact.label }}</span>
@@ -55,7 +55,7 @@
           <div class="card bg-white shadow-lg">
             <div class="card-body">
               <h3 class="font-display text-2xl font-bold mb-4 text-indigo-950">Additional Info</h3>
-              <div class="font-sans space-y-2 text-indigo-600/70">
+              <div class="font-sans space-y-2 text-indigo-950">
                 <p>Willing to relocate: Anywhere</p>
                 <p>Authorized to work in the US for any employer</p>
               </div>
@@ -88,7 +88,7 @@
           <div class="card bg-white shadow-lg">
             <div class="card-body">
               <h3 class="font-display text-2xl font-bold mb-4 text-indigo-950">Professional Summary</h3>
-              <p class="font-sans text-indigo-600/70 leading-relaxed">
+              <p class="font-sans text-indigo-950 leading-relaxed">
                 {{ professionalSummary }}
               </p>
             </div>
@@ -175,8 +175,8 @@
                       <h4 class="font-display text-xl font-bold text-indigo-950">{{ job.title }}</h4>
                       <span class="font-sans text-sm text-primary">{{ job.period }}</span>
                     </div>
-                    <h5 class="font-sans text-lg text-indigo-600/70">{{ job.company }} - {{ job.location }}</h5>
-                    <ul class="list-disc list-inside space-y-2 text-indigo-600/70">
+                    <h5 class="font-sans text-lg text-indigo-950">{{ job.company }} - {{ job.location }}</h5>
+                    <ul class="list-disc list-inside space-y-2 text-indigo-950">
                       <li 
                         v-for="(responsibility, index) in job.responsibilities" 
                         :key="index"
@@ -197,7 +197,7 @@
               <h3 class="font-display text-2xl font-bold mb-4 text-indigo-950">Education</h3>
               <div class="space-y-2">
                 <h4 class="font-display text-xl font-bold text-indigo-950">Certificate in Full Stack Web Development</h4>
-                <p class="font-sans text-lg text-indigo-600/70">General Assembly - New York, NY</p>
+                <p class="font-sans text-lg text-indigo-950">General Assembly - New York, NY</p>
                 <p class="font-sans text-sm text-primary">January 2018 to April 2018</p>
               </div>
             </div>

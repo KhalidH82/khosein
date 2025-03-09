@@ -4,26 +4,25 @@
       <div class="min-h-50 lg:min-h-screen flex flex-col-reverse lg:flex-row items-center gap-12">
         <!-- Left Content -->
         <div class="w-full lg:w-7/12">
-          <ClientOnly>
             <TextHoverEffect
               class="w-full lg:w-[90%] h-52 lg:h-full"
               text="Khalid Hosein"
             />
-          </ClientOnly>
           <div class="space-y-6">
-            <h2 class="font-display text-3xl md:text-4xl text-indigo-600 animate-fade-up">
-              Full Stack Web Developer
+            <h2 class="font-display text-2xl md:text-4xl lg:text-6xl text-indigo-950 animate-fade-up">
+              <span class="text-primary">Full Stack</span> Web Developer
+              <span class="block md:inline text-sm md:ml-2 text-indigo-400">// Code. Create. Innovate.</span>
             </h2>
-            <p class="font-sans text-lg text-indigo-500 max-w-lg animate-fade-up animation-delay-200">
-              Crafting elegant solutions to complex problems with modern web technologies.
+            <p class="font-sans text-indigo-950 text-lg max-w-lg animate-fade-up animation-delay-200 flex items-center">
+              Building scalable solutions for content-driven marketing websites
             </p>
             <div class="w-full flex flex-col sm:flex-row gap-4 animate-fade-up animation-delay-400">
-              <NuxtLink to="/#projects">
-               <InteractiveHoverButton text="View Projects" class="w-full sm:w-[250px]" />
-                </NuxtLink>
-                <NuxtLink to="/#contact" @click.prevent="scrollToContact">
-                  <InteractiveHoverButton text="Contact" class="w-full sm:w-[250px]" />
-                </NuxtLink>
+              <NuxtLink to="/#projects" class="w-full sm:w-auto">
+                <InteractiveHoverButton text="View Projects" class="w-full sm:w-48" />
+              </NuxtLink>
+              <NuxtLink to="/#contact" @click.prevent="scrollToContact" class="w-full sm:w-auto">
+                <InteractiveHoverButton text="Contact" class="w-full sm:w-48" />
+              </NuxtLink>
             </div>
           </div>
         </div>

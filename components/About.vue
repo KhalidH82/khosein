@@ -7,7 +7,7 @@
           About Me
           <span class="text-primary">.</span>
         </h2>
-        <p class="font-sans text-indigo-600/70 max-w-2xl mx-auto">
+        <p class="font-sans text-indigo-950 max-w-2xl mx-auto">
           Passionate about creating meaningful web experiences and solving complex problems through clean, efficient code.
         </p>
       </div>
@@ -63,31 +63,31 @@
                 Hi, I'm Khalid
                 <span class="inline-block animate-wave">👋</span>
               </h3>
-              <p class="font-sans leading-relaxed">
+              <p class="font-sans leading-relaxed text-indigo-950">
                 With over 5 years of experience in web development, I specialize in building scalable, user-friendly applications. 
               </p>
               <!-- My journey in tech started with [your story here], and I've been passionate about creating innovative solutions ever since. -->
-              <p class="font-sans leading-relaxed">
+              <p class="font-sans leading-relaxed text-indigo-950">
                 When I'm not coding, you'll find me 🏋🏽 🚴🏽‍♂️ 🛫 🏝️ ⛰️.
               </p>
               <!-- CTA Section -->
-      <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-        <a 
-          href="#contact" 
-          class="btn btn-primary text-[#fff] hover:bg-indigo-700 group"
-        >
-          Get in Touch
-          <Icon name="mdi:arrow-right" class="w-5 h-5 transition-transform group-hover:translate-x-1" />
-        </a>
-        <a 
-          href="/resume.pdf" 
-          target="_blank"
-          class="btn btn-outline border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white group"
-        >
-          Download CV
-          <Icon name="mdi:download" class="w-5 h-5 transition-transform group-hover:translate-y-1" />
-        </a>
-      </div>
+              <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                <a 
+                  href="#contact" 
+                  class="btn btn-primary text-[#fff] hover:bg-indigo-700 group"
+                >
+                  Get in Touch
+                  <Icon name="mdi:arrow-right" class="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </a>
+                <a 
+                  href="/resume.pdf" 
+                  target="_blank"
+                  class="btn btn-outline border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white group"
+                >
+                  Download CV
+                  <Icon name="mdi:download" class="w-5 h-5 transition-transform group-hover:translate-y-1" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -96,7 +96,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div v-for="(skills, category) in skillCategories" :key="category">
                 <div class="p-6 bg-white rounded-2xl shadow-lg space-y-4 hover:shadow-xl transition-all duration-300">
-                  <h4 class="font-display text-xl font-bold text-indigo-600">
+                  <h4 class="font-display text-xl font-bold text-indigo-950">
                     {{ category }}
                   </h4>
                   <div class="grid grid-cols-2 gap-3">
@@ -110,7 +110,7 @@
                           <img src="/icons/cursor.png" class="w-5 h-5" />
                         </div>
                         <Icon :name="getSkillIcon(skill)" class="w-5 h-5" />
-                        <span class="font-sans text-sm font-medium">{{ skill }}</span>
+                        <span class="font-sans text-sm font-medium text-indigo-950 group-hover:text-white">{{ skill }}</span>
                       </div>
                       <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100"></div>
                     </div>

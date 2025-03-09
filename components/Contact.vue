@@ -7,7 +7,7 @@
           Get In Touch
           <span class="text-primary">.</span>
         </h2>
-        <p class="font-sans text-indigo-600/70 max-w-2xl mx-auto">
+        <p class="font-sans text-indigo-950 max-w-2xl mx-auto">
           Have a project in mind? Let's discuss how we can work together.
         </p>
       </div>
@@ -30,7 +30,7 @@
             <!-- Form Fields -->
             <div v-for="field in formFields" :key="field.id">
               <div class="form-control relative">
-                <UiLabel :for="field.id" class="ml-4 font-sans text-indigo-600/70">
+                <UiLabel :for="field.id" class="ml-4 font-sans text-indigo-950">
                   {{ field.label }}
                 </UiLabel>
                 <IInput  

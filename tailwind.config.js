@@ -71,6 +71,9 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      textColor: {
+        DEFAULT: 'hsl(var(--indigo-950))',
+      },
     },
   },
   plugins: [animate, setupInspiraUI, require('daisyui')],
