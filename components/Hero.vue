@@ -18,10 +18,10 @@
             </p>
             <div class="w-full flex flex-col sm:flex-row gap-4 animate-fade-up animation-delay-400">
               <NuxtLink to="/#projects" class="w-full sm:w-auto">
-                <InteractiveHoverButton text="View Projects" class="w-full sm:w-48" />
+                <InteractiveHoverButton text="View Projects" class="w-full sm:w-auto min-w-[180px]" />
               </NuxtLink>
               <NuxtLink to="/#contact" @click.prevent="scrollToContact" class="w-full sm:w-auto">
-                <InteractiveHoverButton text="Contact" class="w-full sm:w-48" />
+                <InteractiveHoverButton text="Contact" class="w-full sm:w-auto min-w-[180px]" />
               </NuxtLink>
             </div>
           </div>
