@@ -80,7 +80,7 @@
                   <Icon name="mdi:arrow-right" class="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </a>
                 <a 
-                  href="/resume.pdf" 
+                  href="/K-Hosein.pdf" 
                   target="_blank"
                   class="btn btn-outline border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white group"
                 >
