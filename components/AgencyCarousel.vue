@@ -16,10 +16,20 @@
       <!-- First Agency -->
       <div>
         <div class="container mx-auto px-4 mb-8">
-          <h3 class="font-display text-3xl font-bold flex items-center gap-3 text-indigo-950">
-            <!-- <img src="/agency1-logo.jpg" alt="Agency 1" class="w-8 h-8 rounded-full" /> -->
-            T2 Marketing Communications
-          </h3>
+          <a 
+            href="https://t2marcom.com/" 
+            target="_blank" 
+            class="group inline-block"
+          >
+            <h3 class="font-display text-3xl font-bold flex items-center gap-3 text-indigo-950 hover:text-primary transition-colors">
+              T2 Marketing Communications
+              <Icon 
+                name="heroicons:arrow-up-right-20-solid" 
+                class="w-6 h-6 opacity-0 -translate-y-1 translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0" 
+              />
+            </h3>
+            <div class="h-px w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </a>
         </div>
         <CarouselSection 
           :projects="t2MarketingCommuncationsProjects" 
@@ -30,10 +40,20 @@
       <!-- Second Agency -->
       <div>
         <div class="container mx-auto px-4 mb-8">
-          <h3 class="font-display text-3xl font-bold flex items-center gap-3 text-indigo-950">
-            <!-- <img src="/agency2-logo.jpg" alt="Agency 2" class="w-8 h-8 rounded-full" /> -->
-            Thorium Digital
-          </h3>
+          <a 
+            href="https://www.thoriumdigital.com/" 
+            target="_blank"
+            class="group inline-block"
+          >
+            <h3 class="font-display text-3xl font-bold flex items-center gap-3 text-indigo-950 hover:text-primary transition-colors">
+              Thorium Digital
+              <Icon 
+                name="heroicons:arrow-up-right-20-solid" 
+                class="w-6 h-6 opacity-0 -translate-y-1 translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0" 
+              />
+            </h3>
+            <div class="h-px w-0 bg-primary transition-all duration-300 group-hover:w-full"></div>
+          </a>
         </div>
         <CarouselSection 
           :projects="thoriumDigitalProjects" 
