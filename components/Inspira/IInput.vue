@@ -10,20 +10,31 @@
       @mouseleave="() => (visible = false)"
       @mousemove="handleMouseMove"
     >
-      <input
+      <textarea
+        v-if="type === 'textarea'"
         v-bind="$attrs"
         v-model="modelValue"
-        :class="
-          cn(
-            `flex h-10 w-full border-none bg-gray-50 text-black shadow-input rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent 
-            file:text-sm file:font-medium placeholder:text-neutral-400
-            focus-visible:outline-none focus-visible:ring-[2px]  focus-visible:ring-neutral-400
-             disabled:cursor-not-allowed disabled:opacity-50
-        
-             group-hover/input:shadow-none transition duration-400`,
-            props.class,
-          )
-        "
+        :class="cn(
+          `flex w-full border-none bg-gray-50 text-black shadow-input rounded-md px-3 py-2 text-sm
+          placeholder:text-neutral-400 focus-visible:outline-none focus-visible:ring-[2px] 
+          focus-visible:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50
+          group-hover/input:shadow-none transition duration-400 min-h-[100px]`,
+          props.class
+        )"
+      ></textarea>
+      <input
+        v-else
+        v-bind="$attrs"
+        v-model="modelValue"
+        :type="type"
+        :class="cn(
+          `flex h-10 w-full border-none bg-gray-50 text-black shadow-input rounded-md px-3 py-2 text-sm
+          file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-neutral-400
+          focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-neutral-400
+          disabled:cursor-not-allowed disabled:opacity-50
+          group-hover/input:shadow-none transition duration-400`,
+          props.class
+        )"
       />
     </div>
   </template>
@@ -40,6 +51,7 @@
   const props = defineProps<{
     defaultValue?: string | number;
     modelValue?: string | number;
+    type?: string;
     class?: HTMLAttributes["class"];
     containerClass?: HTMLAttributes["class"];
   }>();

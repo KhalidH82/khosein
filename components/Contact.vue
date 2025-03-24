@@ -27,8 +27,8 @@
           
           <!-- Bot field for spam prevention -->
           <div class="hidden">
-              <input name="bot-field" />
-            </div>
+            <input name="bot-field" />
+          </div>
 
           <div class="card-body space-y-6">
             <!-- Form Fields -->
@@ -48,6 +48,8 @@
                   :id="field.id"
                   :aria-labelledby="`${field.id}-label`"
                   required
+                  :modelValue="formData[field.name]"
+                  @update:modelValue="(value) => formData[field.name] = value"
                   class="input bg-white border-2 border-indigo-100 w-full focus:border-primary pt-4 transition-all duration-300"
                   placeholder=" "
                   container-class="w-full"
@@ -150,10 +152,15 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import IInput from './Inspira/IInput.vue';
+import { ref, reactive } from 'vue'
+import IInput from './Inspira/IInput.vue'
 
 const showModal = ref(false)
+const formData = reactive({
+  name: '',
+  email: '',
+  message: ''
+})
 
 const formFields = [
   {
@@ -178,19 +185,29 @@ const formFields = [
 
 const handleSubmit = async (e) => {
   try {
-    const formData = new FormData(e.target)
-    await fetch('/', {
+    const body = new URLSearchParams({
+      'form-name': 'contact',
+      ...formData,
+    }).toString()
+
+    const response = await fetch('/', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({
-        'form-name': 'contact',
-        ...Object.fromEntries(formData)
-      }).toString()
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body
     })
+
+    if (!response.ok) {
+      throw new Error(`Form submission failed: ${response.status}`)
+    }
+
+    // Reset form and show success
+    Object.keys(formData).forEach(key => formData[key] = '')
     showModal.value = true
-    e.target.reset()
   } catch (error) {
     console.error('Form submission error:', error)
+    // You might want to show an error message to the user
   }
 }
 </script>
