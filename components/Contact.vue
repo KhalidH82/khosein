@@ -53,7 +53,7 @@
                 class="w-full bg-white border-2 border-indigo-100 rounded-lg px-4 py-3 mt-1
                        focus:border-primary focus:ring-2 focus:ring-primary/10 
                        transition-all duration-300 outline-none
-                       text-sm text-indigo-950 placeholder-indigo-300"
+                       text-sm text-indigo-950"
               ></textarea>
 
               <!-- Input for other fields -->
@@ -68,7 +68,7 @@
                 class="w-full h-12 bg-white border-2 border-indigo-100 rounded-lg px-4
                        focus:border-primary focus:ring-2 focus:ring-primary/10 
                        transition-all duration-300 outline-none
-                       text-sm text-indigo-950 placeholder-indigo-300"
+                       text-sm text-indigo-950"
               />
             </div>
 
