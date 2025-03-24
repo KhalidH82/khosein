@@ -19,7 +19,6 @@
           data-netlify="true"
           method="POST"
           netlify-honeypot="bot-field"
-          @submit.prevent="handleSubmit"
           class="card bg-white shadow-xl shadow-indigo-100 animate-slide-up"
         >
           <!-- Required for Netlify forms -->
@@ -201,34 +200,6 @@ const formFields = [
     label: '< Message />'
   }
 ]
-
-const handleSubmit = async (e) => {
-  try {
-    const body = new URLSearchParams({
-      'form-name': 'contact',
-      ...formData,
-    }).toString()
-
-    const response = await fetch('/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body
-    })
-
-    if (!response.ok) {
-      throw new Error(`Form submission failed: ${response.status}`)
-    }
-
-    // Reset form and show success
-    Object.keys(formData).forEach(key => formData[key] = '')
-    showModal.value = true
-  } catch (error) {
-    console.error('Form submission error:', error)
-    // You might want to show an error message to the user
-  }
-}
 </script>
 
 <style scoped>
