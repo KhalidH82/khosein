@@ -32,34 +32,54 @@
 
           <div class="card-body space-y-6">
             <!-- Form Fields -->
-            <div v-for="field in formFields" :key="field.id">
-              <div class="form-control relative group">
-                <UiLabel 
-                  :for="field.id" 
-                  :id="`${field.id}-label`"
-                  class="absolute left-4 -top-3 px-2 bg-white text-indigo-950 font-display text-sm transition-all duration-300 z-10"
-                >
-                  {{ field.label }}
-                  <span class="absolute inset-0 bg-white -z-10 rounded transform -skew-x-12"></span>
-                </UiLabel>
-                <IInput  
-                  :type="field.type" 
-                  :name="field.name"
-                  :id="field.id"
-                  :aria-labelledby="`${field.id}-label`"
-                  required
-                  :modelValue="formData[field.name]"
-                  @update:modelValue="(value) => formData[field.name] = value"
-                  class="input bg-white border-2 border-indigo-100 w-full focus:border-primary pt-4 transition-all duration-300"
-                  placeholder=" "
-                  container-class="w-full"
-                />
-              </div>
+            <div v-for="field in formFields" :key="field.id" class="form-control relative">
+              <label 
+                :for="field.id"
+                :id="`${field.id}-label`"
+                class="absolute left-4 -top-3 px-2 bg-white text-indigo-950 font-display text-sm transition-all duration-300 z-10"
+              >
+                {{ field.label }}
+                <span class="absolute inset-0 bg-white -z-10 rounded transform -skew-x-12"></span>
+              </label>
+
+              <!-- Textarea for message -->
+              <textarea
+                v-if="field.type === 'textarea'"
+                :id="field.id"
+                :name="field.name"
+                v-model="formData[field.name]"
+                required
+                rows="4"
+                :aria-labelledby="`${field.id}-label`"
+                class="w-full bg-white border-2 border-indigo-100 rounded-lg px-4 py-3 mt-1
+                       focus:border-primary focus:ring-2 focus:ring-primary/10 
+                       transition-all duration-300 outline-none
+                       text-sm text-indigo-950 placeholder-indigo-300"
+              ></textarea>
+
+              <!-- Input for other fields -->
+              <input
+                v-else
+                :type="field.type"
+                :id="field.id"
+                :name="field.name"
+                v-model="formData[field.name]"
+                required
+                :aria-labelledby="`${field.id}-label`"
+                class="w-full h-12 bg-white border-2 border-indigo-100 rounded-lg px-4
+                       focus:border-primary focus:ring-2 focus:ring-primary/10 
+                       transition-all duration-300 outline-none
+                       text-sm text-indigo-950 placeholder-indigo-300"
+              />
             </div>
 
             <!-- Submit Button -->
             <div class="form-control mt-6">
-              <button type="submit" class="btn btn-primary text-white w-full hover:bg-indigo-700">
+              <button 
+                type="submit" 
+                class="btn btn-primary text-white w-full hover:bg-indigo-700 
+                       transition-colors duration-300 h-12 rounded-lg"
+              >
                 Send Message
               </button>
             </div>
@@ -153,7 +173,6 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import IInput from './Inspira/IInput.vue'
 
 const showModal = ref(false)
 const formData = reactive({
@@ -329,7 +348,7 @@ const handleSubmit = async (e) => {
   @apply text-primary transform -translate-y-1;
 }
 
-.input:focus {
+input:focus, textarea:focus {
   @apply border-primary shadow-sm shadow-primary/10;
 }
 </style>
