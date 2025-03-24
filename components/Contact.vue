@@ -193,7 +193,7 @@
                     <h3 class="font-display text-2xl font-bold text-indigo-950">
                       Message Sent Successfully!
                     </h3>
-                    <p class="font-sans text-base-content/60">
+                    <p class="font-sans text-indigo-950">
                       Thank you for reaching out. I'll get back to you as soon as possible.
                     </p>
                   </div>
