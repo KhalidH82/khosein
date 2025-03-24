@@ -19,6 +19,7 @@
           data-netlify="true"
           method="POST"
           netlify-honeypot="bot-field"
+          @submit.prevent="handleSubmit"
           class="card bg-white shadow-xl shadow-indigo-100 animate-slide-up"
         >
           <!-- Required for Netlify forms -->
@@ -30,46 +31,76 @@
           </div>
 
           <div class="card-body space-y-6">
-            <!-- Form Fields -->
-            <div v-for="field in formFields" :key="field.id" class="form-control relative">
+            <!-- Name Field -->
+            <div class="form-control relative">
               <label 
-                :for="field.id"
-                :id="`${field.id}-label`"
+                for="name"
+                id="name-label"
                 class="absolute left-4 -top-3 px-2 bg-white text-indigo-950 font-display text-sm transition-all duration-300 z-10"
               >
-                {{ field.label }}
+                &lt;Name/&gt;
                 <span class="absolute inset-0 bg-white -z-10 rounded transform -skew-x-12"></span>
               </label>
-
-              <!-- Textarea for message -->
-              <textarea
-                v-if="field.type === 'textarea'"
-                :id="field.id"
-                :name="field.name"
-                v-model="formData[field.name]"
-                required
-                rows="4"
-                :aria-labelledby="`${field.id}-label`"
-                class="w-full bg-white border-2 border-indigo-100 rounded-lg px-4 py-3 mt-1
-                       focus:border-primary focus:ring-2 focus:ring-primary/10 
-                       transition-all duration-300 outline-none
-                       text-sm text-indigo-950"
-              ></textarea>
-
-              <!-- Input for other fields -->
               <input
-                v-else
-                :type="field.type"
-                :id="field.id"
-                :name="field.name"
-                v-model="formData[field.name]"
+                type="text"
+                id="name"
+                name="name"
+                v-model="formData.name"
                 required
-                :aria-labelledby="`${field.id}-label`"
+                aria-labelledby="name-label"
                 class="w-full h-12 bg-white border-2 border-indigo-100 rounded-lg px-4
                        focus:border-primary focus:ring-2 focus:ring-primary/10 
                        transition-all duration-300 outline-none
                        text-sm text-indigo-950"
               />
+            </div>
+
+            <!-- Email Field -->
+            <div class="form-control relative">
+              <label 
+                for="email"
+                id="email-label"
+                class="absolute left-4 -top-3 px-2 bg-white text-indigo-950 font-display text-sm transition-all duration-300 z-10"
+              >
+                &lt;Email/&gt;
+                <span class="absolute inset-0 bg-white -z-10 rounded transform -skew-x-12"></span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                v-model="formData.email"
+                required
+                aria-labelledby="email-label"
+                class="w-full h-12 bg-white border-2 border-indigo-100 rounded-lg px-4
+                       focus:border-primary focus:ring-2 focus:ring-primary/10 
+                       transition-all duration-300 outline-none
+                       text-sm text-indigo-950"
+              />
+            </div>
+
+            <!-- Message Field -->
+            <div class="form-control relative">
+              <label 
+                for="message"
+                id="message-label"
+                class="absolute left-4 -top-3 px-2 bg-white text-indigo-950 font-display text-sm transition-all duration-300 z-10"
+              >
+                &lt;Message/&gt;
+                <span class="absolute inset-0 bg-white -z-10 rounded transform -skew-x-12"></span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                v-model="formData.message"
+                required
+                rows="4"
+                aria-labelledby="message-label"
+                class="w-full bg-white border-2 border-indigo-100 rounded-lg px-4 py-3 mt-1
+                       focus:border-primary focus:ring-2 focus:ring-primary/10 
+                       transition-all duration-300 outline-none
+                       text-sm text-indigo-950"
+              ></textarea>
             </div>
 
             <!-- Submit Button -->
@@ -155,14 +186,17 @@
             </div>
 
             <!-- Close Button -->
-            <button @click="showModal = false" class="btn btn-primary btn-block text-[#fff]">
+            <button 
+              @click="closeModal" 
+              class="btn btn-primary btn-block text-[#fff]"
+            >
               Close
             </button>
           </div>
         </div>
 
         <!-- Close button for accessibility -->
-        <form method="dialog" class="modal-backdrop">
+        <form method="dialog" class="modal-backdrop" @submit.prevent="closeModal">
           <button>close</button>
         </form>
       </dialog>
@@ -180,26 +214,43 @@ const formData = reactive({
   message: ''
 })
 
-const formFields = [
-  {
-    id: 'name',
-    name: 'name',
-    type: 'text',
-    label: '< Name />'
-  },
-  {
-    id: 'email',
-    name: 'email',
-    type: 'email',
-    label: '< Email />'
-  },
-  {
-    id: 'message',
-    name: 'message',
-    type: 'textarea',
-    label: '< Message />'
+const handleSubmit = async (e) => {
+  try {
+    const body = new URLSearchParams({
+      'form-name': 'contact',
+      ...formData
+    }).toString()
+
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body
+    })
+
+    if (!response.ok) {
+      throw new Error(`Form submission failed: ${response.status}`)
+    }
+
+    // Show success modal
+    showModal.value = true
+    
+    // Reset form
+    formData.name = ''
+    formData.email = ''
+    formData.message = ''
+
+  } catch (error) {
+    console.error('Form submission error:', error)
+    // You might want to show an error message to the user
   }
-]
+}
+
+// Add function to close modal
+const closeModal = () => {
+  showModal.value = false
+}
 </script>
 
 <style scoped>
