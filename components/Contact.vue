@@ -19,6 +19,7 @@
           data-netlify="true"
           method="POST"
           netlify-honeypot="bot-field"
+          @submit.prevent="handleSubmit"
           class="card bg-white shadow-xl shadow-indigo-100 animate-slide-up"
         >
           <!-- Required for Netlify forms -->
@@ -179,7 +180,10 @@ const handleSubmit = async (e) => {
     await fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
+      body: new URLSearchParams({
+        'form-name': 'contact',
+        ...Object.fromEntries(formData)
+      }).toString()
     })
     showModal.value = true
     e.target.reset()
