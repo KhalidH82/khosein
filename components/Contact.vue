@@ -149,7 +149,6 @@
 <script setup>
 import { ref } from 'vue'
 import IInput from './Inspira/IInput.vue';
-import InteractiveHoverButton from './Inspira/InteractiveHoverButton.vue';
 
 const showModal = ref(false)
 

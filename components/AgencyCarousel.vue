@@ -77,7 +77,7 @@ const t2MarketingCommuncationsProjects = [
     agency: {
       name: 'T2 Marketing Communications',
       role: 'Lead Frontend Developer',
-      year: '2023'
+      year: '2021'
     }
   },
   {
@@ -90,7 +90,7 @@ const t2MarketingCommuncationsProjects = [
     agency: {
       name: 'T2 Marketing Communications',
       role: 'Lead Frontend Developer',
-      year: '2023'
+      year: '2022'
     }
   },
   {
@@ -116,7 +116,7 @@ const t2MarketingCommuncationsProjects = [
     agency: {
       name: 'T2 Marketing Communications',
       role: 'Frontend Developer',
-      year: '2023'
+      year: '2021'
     }
   },
   {
@@ -129,12 +129,12 @@ const t2MarketingCommuncationsProjects = [
     agency: {
       name: 'T2 Marketing Communications',
       role: 'Lead Frontend Developer',
-      year: '2023'
+      year: '2020'
     }
   },
   {
     id: 6,
-    title: 'L&S Machinbe Company',
+    title: 'L&S Machine Company',
     description: '',
     image: '/t2marcom/LS.webp',
     technologies: ['Vue.js', 'Nuxt.js'],
@@ -142,7 +142,7 @@ const t2MarketingCommuncationsProjects = [
     agency: {
       name: 'T2 Marketing Communications',
       role: 'Frontend Developer',
-      year: '2023'
+      year: '2021'
     }
   },
   {
@@ -156,6 +156,19 @@ const t2MarketingCommuncationsProjects = [
       name: 'T2 Marketing Communications',
       role: 'Lead Frontend Developer',
       year: '2023'
+    }
+  },
+  {
+    id: 8,
+    title: 'Trust Automation',
+    description: '',
+    image: '/t2marcom/Trust.webp',
+    technologies: ['Vue.js', 'Nuxt.js'],
+    liveUrl: 'https://www.trustautomation.com/',
+    agency: {
+      name: 'T2 Marketing Communications',
+      role: 'Frontend Developer',
+      year: '2025'
     }
   },
 ]
