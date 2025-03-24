@@ -221,7 +221,7 @@ const handleSubmit = async (e) => {
       ...formData
     }).toString()
 
-    const response = await fetch('/', {
+    const response = await fetch('/contact.html', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
