@@ -165,47 +165,58 @@
       </div>
 
       <!-- Success Modal -->
-      <dialog :open="showModal" class="modal">
-        <div class="modal-box relative bg-white backdrop-blur-lg" @click.stop>
-          <div class="text-center space-y-6">
-            <!-- Success Animation -->
-            <div class="w-24 h-24 mx-auto relative">
-              <div class="absolute inset-0 rounded-full border-4 border-primary animate-success-circle"></div>
-              <div class="absolute inset-0 flex items-center justify-center">
-                <Icon name="ph:check-bold" class="w-12 h-12 text-primary animate-success-check" />
+      <Teleport to="body">
+        <Transition name="modal">
+          <div v-if="showModal" class="fixed inset-0 z-50 overflow-y-auto">
+            <!-- Backdrop -->
+            <div 
+              class="fixed inset-0 bg-black bg-opacity-50 transition-opacity"
+              @click="closeModal"
+            ></div>
+
+            <!-- Modal Content -->
+            <div class="flex min-h-full items-center justify-center p-4">
+              <div 
+                class="relative bg-white rounded-lg shadow-xl max-w-md w-full p-6 transform transition-all"
+                @click.stop
+              >
+                <div class="text-center space-y-6">
+                  <!-- Success Animation -->
+                  <div class="w-24 h-24 mx-auto relative">
+                    <div class="absolute inset-0 rounded-full border-4 border-primary animate-success-circle"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                      <Icon name="ph:check-bold" class="w-12 h-12 text-primary animate-success-check" />
+                    </div>
+                  </div>
+
+                  <div class="space-y-3">
+                    <h3 class="font-display text-2xl font-bold text-indigo-950">
+                      Message Sent Successfully!
+                    </h3>
+                    <p class="font-sans text-base-content/60">
+                      Thank you for reaching out. I'll get back to you as soon as possible.
+                    </p>
+                  </div>
+
+                  <!-- Close Button -->
+                  <button 
+                    @click="closeModal" 
+                    class="btn btn-primary text-white w-full hover:bg-indigo-700 transition-colors duration-300"
+                  >
+                    Close
+                  </button>
+                </div>
               </div>
             </div>
-
-            <div class="space-y-3">
-              <h3 class="font-display text-2xl font-bold text-indigo-950">
-                Message Sent Successfully!
-              </h3>
-              <p class="font-sans text-base-content/60">
-                Thank you for reaching out. I'll get back to you as soon as possible.
-              </p>
-            </div>
-
-            <!-- Close Button -->
-            <button 
-              @click="closeModal" 
-              class="btn btn-primary btn-block text-[#fff]"
-            >
-              Close
-            </button>
           </div>
-        </div>
-
-        <!-- Close button for accessibility -->
-        <form method="dialog" class="modal-backdrop" @submit.prevent="closeModal">
-          <button>close</button>
-        </form>
-      </dialog>
+        </Transition>
+      </Teleport>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted, onUnmounted } from 'vue'
 
 const showModal = ref(false)
 const formData = reactive({
@@ -221,7 +232,7 @@ const handleSubmit = async (e) => {
       ...formData
     }).toString()
 
-    const response = await fetch('/contact.html', {
+    const response = await fetch('/contact.html', {  // Changed from '/contact.html' to '/'
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -243,14 +254,28 @@ const handleSubmit = async (e) => {
 
   } catch (error) {
     console.error('Form submission error:', error)
-    // You might want to show an error message to the user
   }
 }
 
-// Add function to close modal
 const closeModal = () => {
   showModal.value = false
 }
+
+// Add event listener for escape key
+const handleEscape = (e) => {
+  if (e.key === 'Escape' && showModal.value) {
+    closeModal()
+  }
+}
+
+// Add and remove event listener
+onMounted(() => {
+  document.addEventListener('keydown', handleEscape)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('keydown', handleEscape)
+})
 </script>
 
 <style scoped>
@@ -372,5 +397,28 @@ const closeModal = () => {
 
 input:focus, textarea:focus {
   @apply border-primary shadow-sm shadow-primary/10;
+}
+
+/* Modal Transitions */
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}
+
+.modal-enter-active .relative {
+  transition: transform 0.3s ease;
+}
+
+.modal-enter-from .relative {
+  transform: scale(0.95);
+}
+
+.modal-leave-to .relative {
+  transform: scale(0.95);
 }
 </style>
