@@ -36,6 +36,7 @@
               <div class="form-control relative group">
                 <UiLabel 
                   :for="field.id" 
+                  :id="`${field.id}-label`"
                   class="absolute left-4 -top-3 px-2 bg-white text-indigo-950 font-display text-sm transition-all duration-300 z-10"
                 >
                   {{ field.label }}
@@ -45,6 +46,7 @@
                   :type="field.type" 
                   :name="field.name"
                   :id="field.id"
+                  :aria-labelledby="`${field.id}-label`"
                   required
                   class="input bg-white border-2 border-indigo-100 w-full focus:border-primary pt-4 transition-all duration-300"
                   placeholder=" "

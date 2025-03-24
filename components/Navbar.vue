@@ -13,7 +13,7 @@
               class="btn btn-ghost btn-circle hover:rotate-12 transition-transform"
             >
             <NuxtLink to="/">
-              <img src="/khlogo.jpg" class="w-10 h-10 rounded-full" />
+              <img src="/khlogo.jpg" alt="Khalid Hosein" class="w-10 h-10 rounded-full" />
             </NuxtLink>
             </div>
           </div>

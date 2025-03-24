@@ -107,7 +107,7 @@
                     >
                       <div class="relative z-10 flex items-center gap-2 transition-colors group-hover:text-white">
                         <div v-if="skill === 'Cursor'">
-                          <img src="/icons/cursor.png" class="w-5 h-5" />
+                          <img src="/icons/cursor.png" alt="Cursor" class="w-5 h-5" />
                         </div>
                         <Icon :name="getSkillIcon(skill)" class="w-5 h-5" />
                         <span class="font-sans text-sm font-medium text-indigo-950 group-hover:text-white">{{ skill }}</span>
