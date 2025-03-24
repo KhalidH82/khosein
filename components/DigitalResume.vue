@@ -377,11 +377,11 @@ const getSkillIcon = (skill) => {
 
 const competencies = {
   'Frontend Development': [
+    'CMS Development',
     'Modern JavaScript Frameworks',
     'Responsive Web Design',
     'Performance Optimization',
-    'Cross-browser Compatibility',
-    'Progressive Web Apps'
+    'Cross-browser Compatibility'
   ],
   'Backend Development': [
     'RESTful API Design',
