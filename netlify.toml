@@ -1,0 +1,15 @@
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+
+  [plugins.inputs]
+  exclude = [
+    # By Glob pattern
+    '**/**/404.html',
+    '**/**/200.html',
+  ]
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+  [plugins.inputs.settings]
+    preset = "desktop"
