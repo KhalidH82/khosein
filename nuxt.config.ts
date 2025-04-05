@@ -14,7 +14,10 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/color-mode', '@nuxtjs/tailwindcss', '@nuxt/icon'],
+  modules: ['@nuxtjs/color-mode', '@nuxtjs/tailwindcss', '@nuxt/icon', 'nuxt-gtag'],
+  gtag: {
+    id: 'G-QY17YKS9QN'
+  },
   colorMode: {
     classSuffix: '',
     preference: 'system',
