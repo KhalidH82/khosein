@@ -71,18 +71,18 @@
                 When I'm not coding, you'll find me 🏋🏽 🚴🏽‍♂️ 🛫 🏝️ ⛰️.
               </p>
               <!-- CTA Section -->
-              <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+              <div class="flex flex-wrap gap-4 justify-start">
                 <a 
                   href="#contact" 
-                  class="btn btn-primary text-[#fff] hover:bg-indigo-700 group"
+                  class="btn btn-primary text-[#fff] hover:bg-indigo-700 group w-[160px] text-center"
                 >
                   Get in Touch
                   <Icon name="mdi:arrow-right" class="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </a>
                 <a 
-                  href="/K-Hosein.pdf" 
+                  href="/Khalid Hosein 2025.pdf" 
                   target="_blank"
-                  class="btn btn-outline border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white group"
+                  class="btn btn-outline border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white group w-[160px] text-center"
                 >
                   Download CV
                   <Icon name="mdi:download" class="w-5 h-5 transition-transform group-hover:translate-y-1" />
