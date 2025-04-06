@@ -1,8 +1,13 @@
 <template>
   <div class="fixed w-full top-0 z-50">
     <div 
-      class="navbar backdrop-blur-md bg-white/70 transition-all duration-300"
-      :class="{ 'py-4': !scrolled, 'py-2 shadow-lg shadow-indigo-100/20': scrolled }"
+      class="navbar backdrop-blur-md transition-all duration-300"
+      :class="[
+        colorMode.value === 'light' 
+          ? 'bg-white/70 shadow-indigo-100/20' 
+          : 'bg-gray-900/70 shadow-gray-900/20',
+        { 'py-4': !scrolled, 'py-2 shadow-lg': scrolled }
+      ]"
     >
       <div class="container mx-auto px-4">
         <div class="navbar-start">
@@ -24,15 +29,51 @@
             v-for="(item, index) in navItems" 
             :key="item.text"
             :to="item.section"
-            class="font-display text-xl relative overflow-hidden group text-indigo-600 hover:pointer"
+            class="font-display text-xl relative overflow-hidden group"
+            :class="colorMode.value === 'light' ? 'text-indigo-600' : 'text-indigo-400'"
             :style="`animation-delay: ${index * 100}ms`"
           >
             {{ item.text }}
-            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+            <span 
+              class="absolute bottom-0 left-0 w-full h-0.5 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+              :class="colorMode.value === 'light' ? 'bg-indigo-600' : 'bg-indigo-400'"
+            ></span>
           </NuxtLink>
         </div>
         
         <div class="navbar-end flex justify-end gap-2">
+          <button class="btn btn-ghost btn-circle" @click="toggleTheme" aria-label="Toggle theme">
+            <svg
+              v-if="colorMode.value === 'light'"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              />
+            </svg>
+            <svg
+              v-else
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+              />
+            </svg>
+          </button>
           <button class="btn btn-ghost btn-circle group">
             <div class="indicator">
               <div class="avatar">
@@ -61,6 +102,11 @@ const navItems = [
 const router = useRouter()
 const route = useRoute()
 const scrolled = ref(false)
+const colorMode = useColorMode()
+
+const toggleTheme = () => {
+  colorMode.preference = colorMode.value === 'light' ? 'dark' : 'light'
+}
 
 // Active section tracking
 const currentSection = ref('home')

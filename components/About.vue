@@ -3,11 +3,11 @@
     <div class="container mx-auto px-4">
       <!-- Section Header -->
       <div class="text-center mb-24">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-indigo-950">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
           About Me
           <span class="text-primary">.</span>
         </h2>
-        <p class="font-sans text-indigo-950 max-w-2xl mx-auto">
+        <p class="font-sans max-w-2xl mx-auto" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
           Passionate about creating meaningful web experiences and solving complex problems through clean, efficient code.
         </p>
       </div>
@@ -16,8 +16,8 @@
       <div class="relative">
         <!-- Decorative Background Elements -->
         <div class="absolute inset-0 -z-10 overflow-hidden">
-          <div class="absolute top-1/4 -left-1/4 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl"></div>
-          <div class="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl"></div>
+          <div class="absolute top-1/4 -left-1/4 w-96 h-96 rounded-full blur-3xl" :class="colorMode.value === 'light' ? 'bg-indigo-200/30' : 'bg-indigo-900/30'"></div>
+          <div class="absolute bottom-1/4 -right-1/4 w-96 h-96 rounded-full blur-3xl" :class="colorMode.value === 'light' ? 'bg-primary/20' : 'bg-primary/30'"></div>
         </div>
 
         <!-- Content Grid -->
@@ -53,21 +53,21 @@
                 </div>
               </div>
               <!-- Decorative Frames -->
-              <div class="absolute -top-4 -left-4 w-full h-full border-2 border-indigo-500 rounded-2xl transition-transform duration-300 group-hover:-translate-x-2 group-hover:-translate-y-2"></div>
-              <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-indigo-500 rounded-2xl transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2"></div>
+              <div class="absolute -top-4 -left-4 w-full h-full border-2 rounded-2xl transition-transform duration-300 group-hover:-translate-x-2 group-hover:-translate-y-2" :class="colorMode.value === 'light' ? 'border-indigo-500' : 'border-indigo-400'"></div>
+              <div class="absolute -bottom-4 -right-4 w-full h-full border-2 rounded-2xl transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2" :class="colorMode.value === 'light' ? 'border-indigo-500' : 'border-indigo-400'"></div>
             </div>
 
             <!-- Introduction -->
-            <div class="space-y-4 p-6 bg-white rounded-2xl shadow-lg">
-              <h3 class="font-display text-2xl font-bold text-indigo-950 flex items-center gap-3">
+            <div class="space-y-4 p-6 rounded-2xl shadow-lg" :class="colorMode.value === 'light' ? 'bg-white' : 'bg-gray-800'">
+              <h3 class="font-display text-2xl font-bold flex items-center gap-3" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
                 Hi, I'm Khalid
                 <span class="inline-block animate-wave">👋</span>
               </h3>
-              <p class="font-sans leading-relaxed text-indigo-950">
+              <p class="font-sans leading-relaxed" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
                 With over 5 years of experience in web development, I specialize in building scalable, user-friendly applications. 
               </p>
               <!-- My journey in tech started with [your story here], and I've been passionate about creating innovative solutions ever since. -->
-              <p class="font-sans leading-relaxed text-indigo-950">
+              <p class="font-sans leading-relaxed" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
                 When I'm not coding, you'll find me 🏋🏽 🚴🏽‍♂️ 🛫 🏝️ ⛰️.
               </p>
               <!-- CTA Section -->
@@ -82,7 +82,8 @@
                 <a 
                   href="/Khalid Hosein 2025.pdf" 
                   target="_blank"
-                  class="btn btn-outline border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white group w-[160px] text-center"
+                  class="btn btn-outline group w-[160px] text-center"
+                  :class="colorMode.value === 'light' ? 'border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white' : 'border-indigo-400 text-indigo-400 hover:bg-indigo-400 hover:text-white'"
                 >
                   Download CV
                   <Icon name="mdi:download" class="w-5 h-5 transition-transform group-hover:translate-y-1" />
@@ -95,22 +96,23 @@
           <div class="lg:col-span-7 space-y-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div v-for="(skills, category) in skillCategories" :key="category">
-                <div class="p-6 bg-white rounded-2xl shadow-lg space-y-4 hover:shadow-xl transition-all duration-300">
-                  <h4 class="font-display text-xl font-bold text-indigo-950">
+                <div class="p-6 rounded-2xl shadow-lg space-y-4 hover:shadow-xl transition-all duration-300" :class="colorMode.value === 'light' ? 'bg-white' : 'bg-gray-800'">
+                  <h4 class="font-display text-xl font-bold" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
                     {{ category }}
                   </h4>
                   <div class="grid grid-cols-2 gap-3">
                     <div 
                       v-for="skill in skills" 
                       :key="skill"
-                      class="group relative overflow-hidden rounded-lg bg-white p-3 hover:bg-indigo-600 transition-all duration-300"
+                      class="group relative overflow-hidden rounded-lg p-3 transition-all duration-300"
+                      :class="colorMode.value === 'light' ? 'bg-white hover:bg-indigo-600' : 'bg-gray-800 hover:bg-indigo-700'"
                     >
                       <div class="relative z-10 flex items-center gap-2 transition-colors group-hover:text-white">
                         <div v-if="skill === 'Cursor'">
                           <img src="/icons/cursor.png" alt="Cursor" class="w-5 h-5" />
                         </div>
                         <Icon :name="getSkillIcon(skill)" class="w-5 h-5" />
-                        <span class="font-sans text-sm font-medium text-indigo-950 group-hover:text-white">{{ skill }}</span>
+                        <span class="font-sans text-sm font-medium group-hover:text-white" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">{{ skill }}</span>
                       </div>
                       <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100"></div>
                     </div>
@@ -127,6 +129,7 @@
 
 <script setup>
 import { computed } from 'vue'
+const colorMode = useColorMode()
 
 const skillCategories = {
   'Frontend Development': [

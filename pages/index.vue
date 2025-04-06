@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-white min-h-screen">
+  <div class="min-h-screen transition-colors duration-300" :class="colorMode.value === 'light' ? 'bg-white' : 'bg-gray-900'">
     <!-- <ConstructionAlert /> -->
-    <div class="bg-gradient-to-b from-white to-indigo-50/50">
+    <div class="transition-colors duration-300" :class="colorMode.value === 'light' ? 'bg-gradient-to-b from-white to-indigo-50/50' : 'bg-gradient-to-b from-gray-900 to-indigo-900/20'">
       <Hero />
       <About />
       <AgencyCarousel />
@@ -11,6 +11,8 @@
 </template>
 
 <script setup>
+const colorMode = useColorMode()
+
 useHead({
   title: 'Khalid Hosein',
   meta: [

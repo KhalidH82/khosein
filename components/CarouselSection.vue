@@ -2,23 +2,23 @@
   <div class="relative -mx-4 md:-mx-8 lg:-mx-16 overflow-hidden carousel" :data-carousel-id="carouselId">
     <!-- Background Decorative Elements -->
     <div class="absolute inset-0 overflow-hidden">
-      <div class="absolute top-1/4 left-1/3 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-1/4 right-1/3 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+      <div class="absolute top-1/4 left-1/3 w-64 h-64 rounded-full blur-3xl" :class="colorMode.value === 'light' ? 'bg-indigo-500/10' : 'bg-indigo-900/20'"></div>
+      <div class="absolute bottom-1/4 right-1/3 w-96 h-96 rounded-full blur-3xl" :class="colorMode.value === 'light' ? 'bg-primary/10' : 'bg-primary/20'"></div>
     </div>
 
     <!-- Left Side Navigation & Project Info - Desktop -->
     <div class="absolute left-4 md:left-8 lg:left-16 top-0 h-full flex items-center z-10">
-      <div class="bg-white/80 backdrop-blur-md p-6 rounded-2xl w-96 hidden lg:block">
+      <div class="backdrop-blur-md p-6 rounded-2xl w-96 hidden lg:block" :class="colorMode.value === 'light' ? 'bg-white/80' : 'bg-gray-900/80'">
         <div class="space-y-4">
           <!-- Current Project Info -->
           <div class="space-y-2">
-            <span class="font-sans text-sm text-indigo-600 font-medium">
+            <span class="font-sans text-sm font-medium" :class="colorMode.value === 'light' ? 'text-indigo-600' : 'text-indigo-400'">
               {{ currentProject.agency.role }}
             </span>
-            <h3 class="font-display text-xl font-bold text-indigo-950">
+            <h3 class="font-display text-xl font-bold" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
               {{ currentProject.title }}
             </h3>
-            <p class="font-sans text-sm text-indigo-600/80">
+            <p class="font-sans text-sm" :class="colorMode.value === 'light' ? 'text-indigo-600/80' : 'text-indigo-400/80'">
               {{ currentProject.description }}
             </p>
           </div>
@@ -27,9 +27,10 @@
           <div class="flex items-center justify-between">
             <button 
               @click="prev" 
-              class="btn btn-circle btn-sm bg-white hover:bg-indigo-50"
+              class="btn btn-circle btn-sm transition-colors duration-300"
+              :class="colorMode.value === 'light' ? 'bg-white hover:bg-indigo-50' : 'bg-gray-800 hover:bg-indigo-900'"
             >
-              <Icon name="mdi:chevron-left" class="w-5 h-5 text-indigo-600" />
+              <Icon name="mdi:chevron-left" class="w-5 h-5" :class="colorMode.value === 'light' ? 'text-indigo-600' : 'text-indigo-400'" />
             </button>
             <div class="flex gap-2">
               <button 
@@ -39,16 +40,17 @@
                 class="w-2 h-2 rounded-full transition-all duration-300"
                 :class="[
                   currentIndex === index 
-                    ? 'w-6 bg-indigo-600' 
-                    : 'bg-indigo-200'
+                    ? colorMode.value === 'light' ? 'w-6 bg-indigo-600' : 'w-6 bg-indigo-400'
+                    : colorMode.value === 'light' ? 'bg-indigo-200' : 'bg-indigo-700'
                 ]"
               />
             </div>
             <button 
               @click="next" 
-              class="btn btn-circle btn-sm bg-white hover:bg-indigo-50"
+              class="btn btn-circle btn-sm transition-colors duration-300"
+              :class="colorMode.value === 'light' ? 'bg-white hover:bg-indigo-50' : 'bg-gray-800 hover:bg-indigo-900'"
             >
-              <Icon name="mdi:chevron-right" class="w-5 h-5 text-indigo-600" />
+              <Icon name="mdi:chevron-right" class="w-5 h-5" :class="colorMode.value === 'light' ? 'text-indigo-600' : 'text-indigo-400'" />
             </button>
           </div>
         </div>
@@ -90,13 +92,13 @@
               <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <!-- Mobile Project Info - Always visible on mobile -->
                 <div class="block lg:hidden mb-4">
-                  <span class="text-sm text-primary font-medium block mb-2">
+                  <span class="text-sm font-medium block mb-2" :class="colorMode.value === 'light' ? 'text-primary' : 'text-indigo-400'">
                     {{ project.agency.role }}
                   </span>
-                  <h3 class="text-xl font-bold text-white mb-2">
+                  <h3 class="text-xl font-bold mb-2" :class="colorMode.value === 'light' ? 'text-white' : 'text-indigo-100'">
                     {{ project.title }}
                   </h3>
-                  <p class="text-sm text-white/80 mb-4">
+                  <p class="text-sm mb-4" :class="colorMode.value === 'light' ? 'text-white/80' : 'text-indigo-100/80'">
                     {{ project.description }}
                   </p>
                 </div>
@@ -106,7 +108,8 @@
                   <span 
                     v-for="tech in project.technologies" 
                     :key="tech"
-                    class="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-sm text-white"
+                    class="px-3 py-1 backdrop-blur-sm rounded-full text-sm"
+                    :class="colorMode.value === 'light' ? 'bg-white/10 text-white' : 'bg-gray-900/20 text-indigo-100'"
                   >
                     {{ tech }}
                   </span>
@@ -118,7 +121,8 @@
                     v-if="project.liveUrl"
                     :href="project.liveUrl" 
                     target="_blank"
-                    class="btn btn-sm bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border-0"
+                    class="btn btn-sm backdrop-blur-sm text-white border-0"
+                    :class="colorMode.value === 'light' ? 'bg-white/20 hover:bg-white/30' : 'bg-gray-900/20 hover:bg-gray-900/30'"
                   >
                     View Live
                     <Icon name="mdi:external-link" class="w-4 h-4" />
@@ -167,13 +171,15 @@
       <div class="w-12 h-12 flex items-center justify-center">
         <Icon 
           name="mdi:gesture-swipe-right" 
-          class="w-8 h-8 text-indigo-400/50 animate-swipe-right"
+          class="w-8 h-8 animate-swipe-right"
+          :class="colorMode.value === 'light' ? 'text-indigo-400/50' : 'text-indigo-300/50'"
         />
       </div>
       <div class="w-12 h-12 flex items-center justify-center">
         <Icon 
           name="mdi:gesture-swipe-left" 
-          class="w-8 h-8 text-indigo-400/50 animate-swipe-left"
+          class="w-8 h-8 animate-swipe-left"
+          :class="colorMode.value === 'light' ? 'text-indigo-400/50' : 'text-indigo-300/50'"
         />
       </div>
     </div>
@@ -224,6 +230,7 @@
 
 <script setup>
 import { onMounted, onUnmounted } from 'vue'
+const colorMode = useColorMode()
 
 const props = defineProps({
   projects: {

@@ -3,11 +3,11 @@
     <div class="container mx-auto px-4">
       <!-- Section Header -->
       <div class="text-center mb-16 animate-fade-in">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-indigo-950">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
           Get In Touch
           <span class="text-primary">.</span>
         </h2>
-        <p class="font-sans text-indigo-950 max-w-2xl mx-auto">
+        <p class="font-sans max-w-2xl mx-auto" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
           Have a project in mind? Let's discuss how we can work together.
         </p>
       </div>
@@ -20,7 +20,8 @@
           method="POST"
           netlify-honeypot="bot-field"
           @submit.prevent="handleSubmit"
-          class="card bg-white shadow-xl shadow-indigo-100 animate-slide-up"
+          class="card shadow-xl animate-slide-up"
+          :class="colorMode.value === 'light' ? 'bg-white shadow-indigo-100' : 'bg-gray-800 shadow-gray-900'"
         >
           <!-- Required for Netlify forms -->
           <input type="hidden" name="form-name" value="contact" />
@@ -36,10 +37,11 @@
               <label 
                 for="name"
                 id="name-label"
-                class="absolute left-4 -top-3 px-2 bg-white text-indigo-950 font-display text-sm transition-all duration-300 z-10"
+                class="absolute left-4 -top-3 px-2 font-display text-sm transition-all duration-300 z-10"
+                :class="colorMode.value === 'light' ? 'bg-white text-indigo-950' : 'bg-gray-800 text-indigo-100'"
               >
                 &lt;Name/&gt;
-                <span class="absolute inset-0 bg-white -z-10 rounded transform -skew-x-12"></span>
+                <span class="absolute inset-0 rounded transform -skew-x-12 -z-10" :class="colorMode.value === 'light' ? 'bg-white' : 'bg-gray-800'"></span>
               </label>
               <input
                 type="text"
@@ -48,10 +50,10 @@
                 v-model="formData.name"
                 required
                 aria-labelledby="name-label"
-                class="w-full h-12 bg-white border-2 border-indigo-100 rounded-lg px-4
-                       focus:border-primary focus:ring-2 focus:ring-primary/10 
-                       transition-all duration-300 outline-none
-                       text-sm text-indigo-950"
+                class="w-full h-12 rounded-lg px-4 border-2 transition-all duration-300 outline-none text-sm"
+                :class="colorMode.value === 'light' 
+                  ? 'bg-white border-indigo-100 text-indigo-950 focus:border-primary focus:ring-2 focus:ring-primary/10' 
+                  : 'bg-gray-800 border-gray-700 text-indigo-100 focus:border-primary focus:ring-2 focus:ring-primary/20'"
               />
             </div>
 
@@ -60,10 +62,11 @@
               <label 
                 for="email"
                 id="email-label"
-                class="absolute left-4 -top-3 px-2 bg-white text-indigo-950 font-display text-sm transition-all duration-300 z-10"
+                class="absolute left-4 -top-3 px-2 font-display text-sm transition-all duration-300 z-10"
+                :class="colorMode.value === 'light' ? 'bg-white text-indigo-950' : 'bg-gray-800 text-indigo-100'"
               >
                 &lt;Email/&gt;
-                <span class="absolute inset-0 bg-white -z-10 rounded transform -skew-x-12"></span>
+                <span class="absolute inset-0 rounded transform -skew-x-12 -z-10" :class="colorMode.value === 'light' ? 'bg-white' : 'bg-gray-800'"></span>
               </label>
               <input
                 type="email"
@@ -72,10 +75,10 @@
                 v-model="formData.email"
                 required
                 aria-labelledby="email-label"
-                class="w-full h-12 bg-white border-2 border-indigo-100 rounded-lg px-4
-                       focus:border-primary focus:ring-2 focus:ring-primary/10 
-                       transition-all duration-300 outline-none
-                       text-sm text-indigo-950"
+                class="w-full h-12 rounded-lg px-4 border-2 transition-all duration-300 outline-none text-sm"
+                :class="colorMode.value === 'light' 
+                  ? 'bg-white border-indigo-100 text-indigo-950 focus:border-primary focus:ring-2 focus:ring-primary/10' 
+                  : 'bg-gray-800 border-gray-700 text-indigo-100 focus:border-primary focus:ring-2 focus:ring-primary/20'"
               />
             </div>
 
@@ -84,10 +87,11 @@
               <label 
                 for="message"
                 id="message-label"
-                class="absolute left-4 -top-3 px-2 bg-white text-indigo-950 font-display text-sm transition-all duration-300 z-10"
+                class="absolute left-4 -top-3 px-2 font-display text-sm transition-all duration-300 z-10"
+                :class="colorMode.value === 'light' ? 'bg-white text-indigo-950' : 'bg-gray-800 text-indigo-100'"
               >
                 &lt;Message/&gt;
-                <span class="absolute inset-0 bg-white -z-10 rounded transform -skew-x-12"></span>
+                <span class="absolute inset-0 rounded transform -skew-x-12 -z-10" :class="colorMode.value === 'light' ? 'bg-white' : 'bg-gray-800'"></span>
               </label>
               <textarea
                 id="message"
@@ -96,10 +100,10 @@
                 required
                 rows="4"
                 aria-labelledby="message-label"
-                class="w-full bg-white border-2 border-indigo-100 rounded-lg px-4 py-3 mt-1
-                       focus:border-primary focus:ring-2 focus:ring-primary/10 
-                       transition-all duration-300 outline-none
-                       text-sm text-indigo-950"
+                class="w-full rounded-lg px-4 py-3 mt-1 border-2 transition-all duration-300 outline-none text-sm"
+                :class="colorMode.value === 'light' 
+                  ? 'bg-white border-indigo-100 text-indigo-950 focus:border-primary focus:ring-2 focus:ring-primary/10' 
+                  : 'bg-gray-800 border-gray-700 text-indigo-100 focus:border-primary focus:ring-2 focus:ring-primary/20'"
               ></textarea>
             </div>
 
@@ -107,8 +111,7 @@
             <div class="form-control mt-6">
               <button 
                 type="submit" 
-                class="btn btn-primary text-white w-full hover:bg-indigo-700 
-                       transition-colors duration-300 h-12 rounded-lg"
+                class="btn btn-primary text-white w-full hover:bg-indigo-700 transition-colors duration-300 h-12 rounded-lg"
               >
                 Send Message
               </button>
@@ -177,7 +180,8 @@
             <!-- Modal Content -->
             <div class="flex min-h-full items-center justify-center p-4">
               <div 
-                class="relative bg-white rounded-lg shadow-xl max-w-md w-full p-6 transform transition-all"
+                class="relative rounded-lg shadow-xl max-w-md w-full p-6 transform transition-all"
+                :class="colorMode.value === 'light' ? 'bg-white' : 'bg-gray-800'"
                 @click.stop
               >
                 <div class="text-center space-y-6">
@@ -190,10 +194,10 @@
                   </div>
 
                   <div class="space-y-3">
-                    <h3 class="font-display text-2xl font-bold text-indigo-950">
+                    <h3 class="font-display text-2xl font-bold" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
                       Message Sent Successfully!
                     </h3>
-                    <p class="font-sans text-indigo-950">
+                    <p class="font-sans" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
                       Thank you for reaching out. I'll get back to you as soon as possible.
                     </p>
                   </div>
@@ -217,6 +221,7 @@
 
 <script setup>
 import { ref, reactive, onMounted, onUnmounted } from 'vue'
+const colorMode = useColorMode()
 
 const showModal = ref(false)
 const formData = reactive({

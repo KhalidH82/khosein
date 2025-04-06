@@ -1,15 +1,15 @@
 <template>
-  <footer class="bg-gradient-to-b from-indigo-50 to-white pt-24 pb-12">
+  <footer class="pt-24 pb-12" :class="colorMode.value === 'light' ? 'bg-gradient-to-b from-indigo-50 to-white' : 'bg-gradient-to-b from-indigo-950 to-gray-900'">
     <div class="container mx-auto px-4">
       <!-- Main Footer Content -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
         <!-- Brand Section -->
         <div class="space-y-6">
           <div class="flex items-center gap-4">
-            <img src="/khlogo.jpg" alt="KH Logo" class="w-12 h-12 rounded-full ring-2 ring-indigo-200" />
-            <h3 class="font-display text-2xl font-bold text-indigo-950">Khalid Hosein</h3>
+            <img src="/khlogo.jpg" alt="KH Logo" class="w-12 h-12 rounded-full" :class="colorMode.value === 'light' ? 'ring-2 ring-indigo-200' : 'ring-2 ring-indigo-700'" />
+            <h3 class="font-display text-2xl font-bold" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">Khalid Hosein</h3>
           </div>
-          <p class="font-sans text-base-content/80">
+          <p class="font-sans" :class="colorMode.value === 'light' ? 'text-base-content/80' : 'text-indigo-100/80'">
             Crafting digital experiences with clean code and creative solutions.
           </p>
           <div class="flex gap-4">
@@ -17,12 +17,14 @@
               <Icon 
                 name="mdi:github" 
                 class="w-6 h-6 transition-transform group-hover:scale-110" 
+                :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'"
               />
             </a>
             <a href="https://www.linkedin.com/in/khalid-hosein/" target="_blank" class="btn btn-circle btn-ghost group">
               <Icon 
                 name="mdi:linkedin" 
                 class="w-6 h-6 transition-transform group-hover:scale-110" 
+                :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'"
               />
             </a>
             <!-- <a href="https://twitter.com/yourusername" target="_blank" class="btn btn-circle btn-ghost group">
@@ -36,12 +38,13 @@
 
         <!-- Quick Links -->
         <div class="space-y-6">
-          <h3 class="font-display text-xl font-bold">Quick Links</h3>
+          <h3 class="font-display text-xl font-bold" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">Quick Links</h3>
           <ul class="font-sans space-y-3">
             <li v-for="link in quickLinks" :key="link.text">
               <a 
                 @click.prevent="handleNavigation(link.href)"
-                class="text-base-content/80 hover:text-primary transition-colors flex items-center gap-2 group cursor-pointer"
+                class="flex items-center gap-2 group cursor-pointer transition-colors"
+                :class="colorMode.value === 'light' ? 'text-base-content/80 hover:text-primary' : 'text-indigo-100/80 hover:text-primary'"
               >
                 <span class="w-2 h-2 bg-primary rounded-full transform scale-0 group-hover:scale-100 transition-transform"></span>
                 {{ link.text }}
@@ -52,23 +55,25 @@
 
         <!-- Contact Info -->
         <div class="space-y-6">
-          <h3 class="font-display text-xl font-bold">Get in Touch</h3>
+          <h3 class="font-display text-xl font-bold" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">Get in Touch</h3>
           <div class="font-sans space-y-4">
             <a 
               href="mailto:khalid.hosein9@gmail.com" 
-              class="flex items-center gap-3 text-base-content/80 hover:text-primary transition-colors"
+              class="flex items-center gap-3 transition-colors"
+              :class="colorMode.value === 'light' ? 'text-base-content/80 hover:text-primary' : 'text-indigo-100/80 hover:text-primary'"
             >
               <Icon name="mdi:email" class="w-5 h-5" />
               khalid.hosein9@gmail.com
             </a>
             <a 
               href="tel:+7868389311" 
-              class="flex items-center gap-3 text-base-content/80 hover:text-primary transition-colors"
+              class="flex items-center gap-3 transition-colors"
+              :class="colorMode.value === 'light' ? 'text-base-content/80 hover:text-primary' : 'text-indigo-100/80 hover:text-primary'"
             >
               <Icon name="mdi:phone" class="w-5 h-5" />
               (786) 838 9311
             </a>
-            <p class="flex items-center gap-3 text-base-content/80">
+            <p class="flex items-center gap-3" :class="colorMode.value === 'light' ? 'text-base-content/80' : 'text-indigo-100/80'">
               <Icon name="mdi:map-marker" class="w-5 h-5" />
               Global
             </p>
@@ -77,9 +82,9 @@
       </div>
 
       <!-- Bottom Bar -->
-      <div class="border-t border-indigo-200 pt-8">
+      <div class="border-t pt-8" :class="colorMode.value === 'light' ? 'border-indigo-200' : 'border-indigo-800'">
         <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p class="font-sans text-base-content/60 text-sm">
+          <p class="font-sans text-sm" :class="colorMode.value === 'light' ? 'text-base-content/60' : 'text-indigo-100/60'">
             © {{ new Date().getFullYear() }} Khalid Hosein. All rights reserved.
           </p>
         </div>
@@ -89,6 +94,10 @@
 </template>
 
 <script setup>
+import { useColorMode } from '#imports'
+
+const colorMode = useColorMode()
+
 const quickLinks = [
   { text: 'About Me', href: '/#about' },
   { text: 'Projects', href: '/#projects' },

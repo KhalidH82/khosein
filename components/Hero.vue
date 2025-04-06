@@ -9,11 +9,11 @@
               text="Khalid Hosein"
             />
           <div class="space-y-6">
-            <h2 class="font-display text-2xl md:text-4xl lg:text-6xl text-indigo-950 animate-fade-up">
+            <h2 class="font-display text-2xl md:text-4xl lg:text-6xl animate-fade-up" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
               <span class="text-primary">Full Stack</span> Web Developer
-              <span class="block md:inline text-sm md:ml-2 text-indigo-400">// Code. Create. Innovate.</span>
+              <span class="block md:inline text-sm md:ml-2" :class="colorMode.value === 'light' ? 'text-indigo-400' : 'text-indigo-300'">// Code. Create. Innovate.</span>
             </h2>
-            <p class="font-sans text-indigo-950 text-lg max-w-lg animate-fade-up animation-delay-200 flex items-center">
+            <p class="font-sans text-lg max-w-lg animate-fade-up animation-delay-200 flex items-center" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
               Building scalable solutions for content-driven marketing websites
             </p>
             <div class="w-full flex flex-col sm:flex-row gap-4 animate-fade-up animation-delay-400">
@@ -29,13 +29,13 @@
 
         <!-- Right Content - Avatar -->
         <div class="w-full lg:w-4/12 flex justify-center lg:justify-end">
-          <div class="relative w-full aspect-square rounded-full overflow-hidden shadow-2xl shadow-indigo-200">
+          <div class="relative w-full aspect-square rounded-full overflow-hidden" :class="colorMode.value === 'light' ? 'shadow-2xl shadow-indigo-200' : 'shadow-2xl shadow-indigo-900'">
             <img 
               src="/khavatar.jpg" 
               alt="Khalid Hosein"
               class="w-full h-full object-cover"
             />
-            <div class="absolute inset-0 ring-2 ring-indigo-200 rounded-full"></div>
+            <div class="absolute inset-0 ring-2 rounded-full" :class="colorMode.value === 'light' ? 'ring-indigo-200' : 'ring-indigo-900'"></div>
           </div>
         </div>
       </div>
@@ -46,6 +46,7 @@
 <script setup>
 import TextHoverEffect from './Inspira/TextHoverEffect.vue';
 import InteractiveHoverButton from './Inspira/InteractiveHoverButton.vue';
+const colorMode = useColorMode()
 
 const scrollToContact = () => {
   const element = document.getElementById('contact')

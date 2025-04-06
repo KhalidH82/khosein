@@ -2,11 +2,11 @@
   <section id="projects" class="py-24 overflow-hidden">
     <!-- Section Header -->
     <div class="container mx-auto px-4 mb-16">
-      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-indigo-950">
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
         Agency Work
         <span class="text-primary">.</span>
       </h2>
-      <p class="font-sans text-base-content/60 max-w-2xl text-indigo-950">
+      <p class="font-sans max-w-2xl" :class="colorMode.value === 'light' ? 'text-base-content/60 text-indigo-950' : 'text-indigo-100/80'">
         Selected projects I've worked on with leading agencies.
       </p>
     </div>
@@ -21,7 +21,7 @@
             target="_blank" 
             class="group inline-block"
           >
-            <h3 class="font-display text-3xl font-bold flex items-center gap-3 text-indigo-950 hover:text-primary transition-colors">
+            <h3 class="font-display text-3xl font-bold flex items-center gap-3 transition-colors" :class="colorMode.value === 'light' ? 'text-indigo-950 hover:text-primary' : 'text-indigo-100 hover:text-primary'">
               T2 Marketing Communications
               <Icon 
                 name="heroicons:arrow-up-right-20-solid" 
@@ -45,7 +45,7 @@
             target="_blank"
             class="group inline-block"
           >
-            <h3 class="font-display text-3xl font-bold flex items-center gap-3 text-indigo-950 hover:text-primary transition-colors">
+            <h3 class="font-display text-3xl font-bold flex items-center gap-3 transition-colors" :class="colorMode.value === 'light' ? 'text-indigo-950 hover:text-primary' : 'text-indigo-100 hover:text-primary'">
               Thorium Digital
               <Icon 
                 name="heroicons:arrow-up-right-20-solid" 
@@ -65,6 +65,7 @@
 </template>
 
 <script setup>
+const colorMode = useColorMode()
 
 const t2MarketingCommuncationsProjects = [
   {

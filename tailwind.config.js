@@ -10,6 +10,7 @@ export default {
     "./app.vue",
     "./error.vue",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -90,6 +91,18 @@ export default {
         'base-200': '#f3f4f6',
         'base-300': '#e5e7eb',
         'base-content': '#1e1b4b',
+      },
+      dark: {
+        primary: '#818cf8',
+        'primary-focus': '#6366f1',
+        'primary-content': '#ffffff',
+        secondary: '#4f46e5',
+        accent: '#a5b4fc',
+        neutral: '#e0e7ff',
+        'base-100': '#1e1b4b',
+        'base-200': '#312e81',
+        'base-300': '#3730a3',
+        'base-content': '#e0e7ff',
       }
     }]
   }

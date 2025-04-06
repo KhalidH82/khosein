@@ -1,9 +1,9 @@
 <template>
-  <section class="py-24 bg-gradient-to-b from-white to-indigo-50">
+  <section class="py-24" :class="colorMode.value === 'light' ? 'bg-gradient-to-b from-white to-indigo-50' : 'bg-gradient-to-b from-gray-900 to-indigo-950'">
     <div class="container mx-auto px-4">
       <!-- Header Section -->
       <div class="text-start mb-16">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 text-indigo-950">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-4" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
           Digital Profile
           <span class="text-primary">.</span>
         </h2>
@@ -14,15 +14,16 @@
         <!-- Left Column - Contact & Skills -->
         <div class="space-y-8">
           <!-- Contact Info Card -->
-          <div class="card bg-white shadow-lg">
+          <div class="card shadow-lg" :class="colorMode.value === 'light' ? 'bg-white' : 'bg-gray-800'">
             <div class="card-body">
-              <h3 class="font-display text-2xl font-bold mb-4 text-indigo-950">Contact Info</h3>
+              <h3 class="font-display text-2xl font-bold mb-4" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">Contact Info</h3>
               <div class="font-sans space-y-3">
                 <a 
                   v-for="contact in contactInfo" 
                   :key="contact.label"
                   :href="contact.href"
-                  class="flex items-center gap-3 text-indigo-950 hover:text-primary transition-colors"
+                  class="flex items-center gap-3 transition-colors"
+                  :class="colorMode.value === 'light' ? 'text-indigo-950 hover:text-primary' : 'text-indigo-100 hover:text-primary'"
                 >
                   <Icon :name="contact.icon" class="w-5 h-5" />
                   <span>{{ contact.label }}</span>
@@ -32,18 +33,19 @@
           </div>
 
           <!-- Skills Card -->
-          <div class="card bg-white shadow-lg">
+          <div class="card shadow-lg" :class="colorMode.value === 'light' ? 'bg-white' : 'bg-gray-800'">
             <div class="card-body">
-              <h3 class="font-display text-2xl font-bold mb-6 text-indigo-950">Technical Skills</h3>
+              <h3 class="font-display text-2xl font-bold mb-6" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">Technical Skills</h3>
               <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-3 gap-3">
                 <div 
                   v-for="skill in skills" 
                   :key="skill"
-                  class="group relative overflow-hidden rounded-lg bg-white p-3 hover:bg-indigo-600 transition-all duration-300"
+                  class="group relative overflow-hidden rounded-lg transition-all duration-300"
+                  :class="colorMode.value === 'light' ? 'bg-white hover:bg-indigo-600' : 'bg-gray-700 hover:bg-indigo-700'"
                 >
                   <div class="relative z-10 flex items-center gap-2 transition-colors group-hover:text-white">
                     <Icon :name="getSkillIcon(skill)" class="w-5 h-5" />
-                    <span class="font-sans text-sm font-medium text-indigo-950 group-hover:text-white">{{ skill }}</span>
+                    <span class="font-sans text-sm font-medium group-hover:text-white" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">{{ skill }}</span>
                   </div>
                   <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100"></div>
                 </div>
@@ -52,10 +54,10 @@
           </div>
 
           <!-- Additional Info Card -->
-          <div class="card bg-white shadow-lg">
+          <div class="card shadow-lg" :class="colorMode.value === 'light' ? 'bg-white' : 'bg-gray-800'">
             <div class="card-body">
-              <h3 class="font-display text-2xl font-bold mb-4 text-indigo-950">Additional Info</h3>
-              <div class="font-sans space-y-2 text-indigo-950">
+              <h3 class="font-display text-2xl font-bold mb-4" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">Additional Info</h3>
+              <div class="font-sans space-y-2" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
                 <p>Willing to relocate: Anywhere</p>
                 <p>Authorized to work in the US for any employer</p>
               </div>
@@ -63,16 +65,17 @@
           </div>
 
           <!-- Links Card -->
-          <div class="card bg-white shadow-lg">
+          <div class="card shadow-lg" :class="colorMode.value === 'light' ? 'bg-white' : 'bg-gray-800'">
             <div class="card-body">
-              <h3 class="font-display text-2xl font-bold mb-4 text-indigo-950">Professional Links</h3>
+              <h3 class="font-display text-2xl font-bold mb-4" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">Professional Links</h3>
               <div class="flex flex-col gap-3">
                 <a 
                   v-for="link in professionalLinks" 
                   :key="link.url"
                   :href="link.url"
                   target="_blank"
-                  class="btn btn-outline gap-2 hover:scale-105 transition-transform text-indigo-950 hover:text-white hover:bg-dot-indigo-950"
+                  class="btn btn-outline gap-2 hover:scale-105 transition-transform"
+                  :class="colorMode.value === 'light' ? 'text-indigo-950 hover:text-white hover:bg-dot-indigo-950' : 'text-indigo-100 hover:text-white hover:bg-dot-indigo-100'"
                 >
                   <Icon :name="link.icon" class="w-5 h-5" />
                   {{ link.label }}
@@ -85,27 +88,28 @@
         <!-- Center Column - Experience -->
         <div class="lg:col-span-2 space-y-8">
           <!-- Summary Card -->
-          <div class="card bg-white shadow-lg">
+          <div class="card shadow-lg" :class="colorMode.value === 'light' ? 'bg-white' : 'bg-gray-800'">
             <div class="card-body">
-              <h3 class="font-display text-2xl font-bold mb-4 text-indigo-950">Professional Summary</h3>
-              <p class="font-sans text-indigo-950">
+              <h3 class="font-display text-2xl font-bold mb-4" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">Professional Summary</h3>
+              <p class="font-sans" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
                 {{ professionalSummary }}
               </p>
             </div>
           </div>
 
           <!-- Skills & Competencies -->
-          <div class="card bg-white shadow-lg">
+          <div class="card shadow-lg" :class="colorMode.value === 'light' ? 'bg-white' : 'bg-gray-800'">
             <div class="card-body">
-              <h3 class="font-display text-2xl font-bold mb-6 text-indigo-950">Skills & Competencies</h3>
+              <h3 class="font-display text-2xl font-bold mb-6" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">Skills & Competencies</h3>
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div v-for="(section, title) in competencies" :key="title" class="space-y-3">
-                  <h4 class="font-display text-lg font-semibold text-indigo-950">{{ title }}</h4>
+                  <h4 class="font-display text-lg font-semibold" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">{{ title }}</h4>
                   <ul class="space-y-2">
                     <li 
                       v-for="skill in section" 
                       :key="skill"
-                      class="flex items-center gap-2 text-indigo-950"
+                      class="flex items-center gap-2"
+                      :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'"
                     >
                       <Icon name="mdi:check-circle" class="w-5 h-5 text-primary" />
                       <span>{{ skill }}</span>
@@ -117,9 +121,9 @@
           </div>
 
           <!-- Experience Timeline -->
-          <div class="card bg-white shadow-lg">
+          <div class="card shadow-lg" :class="colorMode.value === 'light' ? 'bg-white' : 'bg-gray-800'">
             <div class="card-body">
-              <h3 class="font-display text-2xl font-bold mb-6 text-indigo-950">Work Experience</h3>
+              <h3 class="font-display text-2xl font-bold mb-6" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">Work Experience</h3>
               <div class="space-y-8">
                 <div 
                   v-for="job in experience" 
@@ -129,11 +133,11 @@
                   <div class="absolute -left-[9px] top-0 w-4 h-4 bg-primary rounded-full"></div>
                   <div class="space-y-2">
                     <div class="flex justify-between items-start flex-wrap gap-2">
-                      <h4 class="font-display text-xl font-bold text-indigo-950">{{ job.title }}</h4>
+                      <h4 class="font-display text-xl font-bold" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">{{ job.title }}</h4>
                       <span class="font-sans text-sm text-primary">{{ job.period }}</span>
                     </div>
-                    <h5 class="font-sans text-lg text-indigo-950">{{ job.company }} - {{ job.location }}</h5>
-                    <ul class="list-disc list-inside space-y-2 text-indigo-950">
+                    <h5 class="font-sans text-lg" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">{{ job.company }} - {{ job.location }}</h5>
+                    <ul class="list-disc list-inside space-y-2" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
                       <li 
                         v-for="(responsibility, index) in job.responsibilities" 
                         :key="index"
@@ -149,12 +153,12 @@
           </div>
 
           <!-- Education -->
-          <div class="card bg-white shadow-lg">
+          <div class="card shadow-lg" :class="colorMode.value === 'light' ? 'bg-white' : 'bg-gray-800'">
             <div class="card-body">
-              <h3 class="font-display text-2xl font-bold mb-4 text-indigo-950">Education</h3>
+              <h3 class="font-display text-2xl font-bold mb-4" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">Education</h3>
               <div class="space-y-2">
-                <h4 class="font-display text-xl font-bold text-indigo-950">Certificate in Full Stack Web Development</h4>
-                <p class="font-sans text-lg text-indigo-950">General Assembly - New York, NY</p>
+                <h4 class="font-display text-xl font-bold" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">Certificate in Full Stack Web Development</h4>
+                <p class="font-sans text-lg" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">General Assembly - New York, NY</p>
                 <p class="font-sans text-sm text-primary">January 2018 to April 2018</p>
               </div>
             </div>
@@ -166,6 +170,10 @@
 </template>
 
 <script setup>
+import { useColorMode } from '#imports'
+
+const colorMode = useColorMode()
+
 const contactInfo = [
   { label: 'khalid.hosein9@gmail.com', href: 'mailto:khalid.hosein9@gmail.com', icon: 'mdi:email' },
   { label: '+1 786 838 9311', href: 'tel:+17868389311', icon: 'mdi:phone' },
