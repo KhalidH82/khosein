@@ -31,7 +31,7 @@
         <div class="w-full lg:w-4/12 flex justify-center lg:justify-end">
           <div class="relative w-full aspect-square rounded-full overflow-hidden" :class="colorMode.value === 'light' ? 'shadow-2xl shadow-indigo-200' : 'shadow-2xl shadow-indigo-900'">
             <img 
-              src="/khavatar.jpg" 
+              src="/KhalidHosein.png" 
               alt="Khalid Hosein"
               class="w-full h-full object-cover"
             />
