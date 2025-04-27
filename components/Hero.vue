@@ -1,41 +1,57 @@
 <template>
-  <div class="min-h-screen">
-    <div class="container mx-auto px-4 pt-24 lg:pt-0">
-      <div class="min-h-50 lg:min-h-screen flex flex-col-reverse lg:flex-row items-center gap-12">
-        <!-- Left Content -->
-        <div class="w-full lg:w-7/12">
-            <TextHoverEffect
-              class="w-full lg:w-[90%] h-52 lg:h-full"
-              text="Khalid Hosein"
-            />
-          <div class="space-y-6">
-            <h2 class="font-display text-2xl md:text-4xl lg:text-6xl animate-fade-up" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
-              <span class="text-primary">Full Stack</span> Web Developer
-              <span class="block md:inline text-sm md:ml-2" :class="colorMode.value === 'light' ? 'text-indigo-400' : 'text-indigo-300'">// Code. Create. Innovate.</span>
-            </h2>
-            <p class="font-sans text-lg max-w-lg animate-fade-up animation-delay-200 flex items-center" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-indigo-100'">
-              Building scalable solutions for content-driven marketing websites
-            </p>
-            <div class="w-full flex flex-col sm:flex-row gap-4 animate-fade-up animation-delay-400">
-              <NuxtLink to="/#projects" class="w-full sm:w-auto">
-                <InteractiveHoverButton text="View Projects" class="w-full sm:w-auto min-w-64" />
-              </NuxtLink>
-              <NuxtLink to="/#contact" @click.prevent="scrollToContact" class="w-full sm:w-auto">
-                <InteractiveHoverButton text="Contact" class="w-full sm:w-auto min-w-64" />
-              </NuxtLink>
-            </div>
-          </div>
+  <div class="h-[46rem] lg:min-h-screen relative overflow-hidden">
+    <!-- Inspira UI Background Effect -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10"></div>
+      <div class="absolute top-1/4 -right-24 w-96 h-96 rounded-full opacity-10 animate-blob" :class="colorMode.value === 'light' ? 'bg-indigo-400' : 'bg-indigo-600'"></div>
+      <div class="absolute bottom-1/4 -left-24 w-96 h-96 rounded-full opacity-10 animate-blob animation-delay-2000" :class="colorMode.value === 'light' ? 'bg-indigo-300' : 'bg-indigo-700'"></div>
+    </div>
+    <div class="container mx-auto px-4 pt-24 lg:pt-32 relative">
+      <div class="max-w-4xl mx-auto">
+        <!-- Name with Text Hover Effect -->
+        <div class="mb-8">
+          <TextHoverEffect
+          class="w-full h-full"
+          text="Khalid Hosein"
+          />
         </div>
+        
+        <!-- <div class="h-[200px] w-full overflow-hidden">
+        <VideoText src="https://cdn.magicui.design/ocean-small.webm" font-size="200"> Khalid </VideoText>
+        </div> -->
+        <!-- Main Content -->
+        <div class="space-y-8">
+          <!-- Title Section with Text Reveal Card -->
+          <div class="space-y-4">
+            <h2 class="font-display text-4xl md:text-5xl lg:text-7xl font-bold animate-fade-up" :class="colorMode.value === 'light' ? 'text-indigo-950' : 'text-white'">
+              <span class="inline-block">
+                <span class="text-primary">Full Stack</span> Web Developer
+              </span>
+              <span class="block mt-2 text-sm md:text-base lg:text-lg" :class="colorMode.value === 'light' ? 'text-indigo-400' : 'text-indigo-300'">
+                // Code. Create. Innovate.
+              </span>
+            </h2>
+          </div>
 
-        <!-- Right Content - Avatar -->
-        <div class="w-full lg:w-4/12 flex justify-center lg:justify-end">
-          <div class="relative w-full aspect-square rounded-full overflow-hidden" :class="colorMode.value === 'light' ? 'shadow-2xl shadow-indigo-200' : 'shadow-2xl shadow-indigo-900'">
-            <img 
-              src="/KhalidHosein.png" 
-              alt="Khalid Hosein"
-              class="w-full h-full object-cover"
-            />
-            <div class="absolute inset-0 ring-2 rounded-full" :class="colorMode.value === 'light' ? 'ring-indigo-200' : 'ring-indigo-900'"></div>
+          <!-- Description with Text Highlight -->
+          <p class="font-sans text-lg md:text-xl max-w-2xl animate-fade-up animation-delay-200" :class="colorMode.value === 'light' ? 'text-indigo-950/80' : 'text-indigo-100/80'">
+            Building scalable solutions for content-driven marketing websites
+          </p>
+
+          <!-- Action Buttons with Interactive Hover -->
+          <div class="flex flex-col sm:flex-row gap-4 animate-fade-up animation-delay-400">
+            <NuxtLink to="/#projects" class="w-full sm:w-auto group">
+              <InteractiveHoverButton 
+                text="View Projects" 
+                class="w-full sm:w-auto min-w-64 transform transition-transform group-hover:scale-105" 
+              />
+            </NuxtLink>
+            <NuxtLink to="/#contact" @click.prevent="scrollToContact" class="w-full sm:w-auto group">
+              <InteractiveHoverButton 
+                text="Contact" 
+                class="w-full sm:w-auto min-w-64 transform transition-transform group-hover:scale-105" 
+              />
+            </NuxtLink>
           </div>
         </div>
       </div>
@@ -46,6 +62,7 @@
 <script setup>
 import TextHoverEffect from './Inspira/TextHoverEffect.vue';
 import InteractiveHoverButton from './Inspira/InteractiveHoverButton.vue';
+import VideoText from './Inspira/VideoText.vue';
 const colorMode = useColorMode()
 
 const scrollToContact = () => {
@@ -79,5 +96,37 @@ const scrollToContact = () => {
 
 .animation-delay-400 {
   animation-delay: 400ms;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2000ms;
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+/* Inspira UI inspired hover effects */
+.group:hover .group-hover\:scale-105 {
+  transform: scale(1.05);
+}
+
+.group:hover .group-hover\:opacity-100 {
+  opacity: 1;
 }
 </style>

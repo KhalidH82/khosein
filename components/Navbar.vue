@@ -78,7 +78,7 @@
             <div class="indicator">
               <div class="avatar">
                 <div class="rounded-full transition-transform duration-300 group-hover:scale-110">
-                  <img src="/khavatar.jpg" alt="Khalid Hosein" class="w-10 h-10"/>
+                  <!-- <img src="/khavatar.jpg" alt="Khalid Hosein" class="w-10 h-10"/> -->
                 </div>
               </div>
               <span class="badge badge-xs badge-primary indicator-item animate-pulse"></span>

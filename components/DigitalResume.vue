@@ -40,7 +40,7 @@
                 <div 
                   v-for="skill in skills" 
                   :key="skill"
-                  class="group relative overflow-hidden rounded-lg transition-all duration-300"
+                  class="group relative overflow-hidden rounded-lg transition-all duration-300 p-1"
                   :class="colorMode.value === 'light' ? 'bg-white hover:bg-indigo-600' : 'bg-gray-700 hover:bg-indigo-700'"
                 >
                   <div class="relative z-10 flex items-center gap-2 transition-colors group-hover:text-white">
