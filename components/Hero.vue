@@ -26,7 +26,6 @@
             </div>
           </div>
         </div>
-
         <!-- Right Content - Avatar -->
         <div class="w-full lg:w-4/12 flex justify-center lg:justify-end">
           <div class="relative w-full aspect-square rounded-full overflow-hidden" :class="colorMode.value === 'light' ? 'shadow-2xl shadow-indigo-200' : 'shadow-2xl shadow-indigo-900'">
