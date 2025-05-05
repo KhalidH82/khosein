@@ -15,7 +15,6 @@
           text="Khalid Hosein"
           />
         </div>
-        
         <!-- <div class="h-[200px] w-full overflow-hidden">
         <VideoText src="https://cdn.magicui.design/ocean-small.webm" font-size="200"> Khalid </VideoText>
         </div> -->
