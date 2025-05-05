@@ -196,7 +196,7 @@ const experience = [
     location: 'Morristown, NJ',
     period: 'June 2020 to Present',
     responsibilities: [
-      'Utilize modern web technologies Vue/Nuxt and headless API solutions to develop responsive, static, accessible, SEO-enhanced, and exceptionally fast websites catering to international manufacturers of large-scale industrial products, ensuring their online presence aligned with their global reputation',
+      'Utilize modern SSR web technologies Vue/Nuxt and headless API solutions to develop responsive, static, accessible, SEO-enhanced, and exceptionally fast websites catering to international manufacturers of large-scale industrial products, ensuring their online presence aligned with their global reputation',
       'Orchestrated the development of content management system (CMS) based websites from the ground up focused on delivering specialized engineering content to international clients',
       'Demonstrated expertise in content modeling by transforming diverse content types such as blogs, product data, and general content into reusable and highly extendable templates allowing a streamlined content creation process for internal and external teams, ensuring consistency and efficiency',
       'Adeptly resolved console errors, build issues, and any code abnormalities, ensuring that websites consistently delivered a seamless user experience with a high attention to detail',
